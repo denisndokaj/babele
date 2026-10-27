@@ -74,7 +74,6 @@ Perché funzioni, nelle impostazioni del repository GitHub, *Settings → Pages
 
 ## Stato del progetto
 
-Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F2 — Grammatica**
-(unità A1 contrastive per francese/tedesco/spagnolo, tabelle comparative
-IT/FR/DE/ES). F0 e F1 — scaffold, pipeline dati, SRS, onboarding, piano
-del giorno — sono complete.
+Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F3 — Ascolta &
+guarda** (player video locale/YouTube, sottotitoli doppi, mining
+lessicale, shadowing, catalogo iniziale). F0, F1 e F2 sono complete.

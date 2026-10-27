@@ -5,7 +5,7 @@ le sessioni future dal contesto giusto.
 
 ## Stato
 
-Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F2 — Grammatica**.
+Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F3 — Ascolta & guarda**.
 Non passare alla fase successiva senza via libera esplicito dell'utente.
 
 ## Stack
@@ -76,6 +76,16 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
   unità (≥15 esercizi, permutazioni valide dei riordini, indici validi delle scelte
   multiple…): va tenuto verde quando si aggiunge contenuto. `src/grammar/checkAnswer.ts`
   contiene la logica di verifica delle risposte, pura e testata separatamente dalla UI.
+- **Sottotitoli e video** (`src/subtitles/`, `src/media/`): parser SRT/VTT scritti a mano
+  (sono formati di file standard, non un dataset esterno). Il player video locale usa
+  `<video>` nativo; YouTube passa sempre dall'IFrame API ufficiale
+  (`src/media/youtube.ts`), mai da embed non ufficiali. La stima di copertura lessicale
+  (`src/subtitles/coverage.ts`) tokenizza come la pipeline dati e confronta con i lemmi
+  delle carte già salvate — tienila aggiornata se cambi la tokenizzazione altrove.
+  Catalogo iniziale in `src/content/media/catalog.ts`: ogni URL va verificato (HTTP 200)
+  prima di aggiungerlo, mai inventato; niente film o podcast finché non si può
+  verificarne la disponibilità in modo ripetibile (la disponibilità streaming cambia
+  troppo spesso per una verifica singola).
 
 ## Deploy
 
