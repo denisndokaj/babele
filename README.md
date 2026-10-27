@@ -74,7 +74,7 @@ Perché funzioni, nelle impostazioni del repository GitHub, *Settings → Pages
 
 ## Stato del progetto
 
-Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F4 — Leggi e
-Musica** (lettore con evidenziazione per stato, percorso filosofico
-verificato, glossario trilingue, testo di canzoni con cloze e
-playlist). F0, F1, F2 e F3 sono complete.
+Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F5 —
+Pronuncia, dettato, confusioni** (guida ai suoni, scelta della voce TTS,
+riconoscimento vocale, dettato con errori ricorrenti, coppie minime,
+falsi amici con rilevamento delle interferenze). F0–F4 sono complete.

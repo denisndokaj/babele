@@ -15,6 +15,13 @@ export interface SessionSettings {
 
 const ONBOARDING_KEY = 'onboardingProfile'
 const SESSION_SETTINGS_KEY = 'sessionSettings'
+const CONFUSION_MISTAKES_KEY = 'confusionMistakes'
+const VOICE_PREFERENCES_KEY = 'voicePreferences'
+const DICTATION_MISTAKES_KEY = 'dictationMistakes'
+
+export type ConfusionMistakes = Record<string, number>
+export type VoicePreferences = Partial<Record<LanguageCode, string>>
+export type DictationMistakes = Record<string, number>
 
 export const DEFAULT_SESSION_SETTINGS: SessionSettings = {
   dailyBudgetMinutes: 20,
@@ -50,4 +57,36 @@ export async function getSessionSettings(): Promise<SessionSettings> {
 
 export async function saveSessionSettings(settings: SessionSettings): Promise<void> {
   await writeSetting(SESSION_SETTINGS_KEY, settings)
+}
+
+export async function getConfusionMistakes(): Promise<ConfusionMistakes> {
+  return (await readSetting<ConfusionMistakes>(CONFUSION_MISTAKES_KEY)) ?? {}
+}
+
+/** Incrementa il contatore di interferenze rilevate per una coppia e restituisce il nuovo totale. */
+export async function incrementConfusionMistake(pairId: string): Promise<number> {
+  const current = await getConfusionMistakes()
+  const newCount = (current[pairId] ?? 0) + 1
+  await writeSetting(CONFUSION_MISTAKES_KEY, { ...current, [pairId]: newCount })
+  return newCount
+}
+
+export async function getVoicePreferences(): Promise<VoicePreferences> {
+  return (await readSetting<VoicePreferences>(VOICE_PREFERENCES_KEY)) ?? {}
+}
+
+export async function setVoicePreference(language: LanguageCode, voiceURI: string): Promise<void> {
+  const current = await getVoicePreferences()
+  await writeSetting(VOICE_PREFERENCES_KEY, { ...current, [language]: voiceURI })
+}
+
+export async function getDictationMistakes(): Promise<DictationMistakes> {
+  return (await readSetting<DictationMistakes>(DICTATION_MISTAKES_KEY)) ?? {}
+}
+
+export async function recordDictationMistake(key: string): Promise<number> {
+  const current = await getDictationMistakes()
+  const newCount = (current[key] ?? 0) + 1
+  await writeSetting(DICTATION_MISTAKES_KEY, { ...current, [key]: newCount })
+  return newCount
 }

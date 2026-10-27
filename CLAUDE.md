@@ -5,7 +5,7 @@ le sessioni future dal contesto giusto.
 
 ## Stato
 
-Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F4 — Leggi e Musica**.
+Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F5 — Pronuncia, dettato, confusioni**.
 Non passare alla fase successiva senza via libera esplicito dell'utente.
 
 ## Stack
@@ -97,6 +97,21 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
   dall'utente in Musica restano solo in IndexedDB: non committare mai un testo di
   canzone, nemmeno come fixture di test. La playlist (`src/content/music/playlist.ts`)
   cita solo canzoni reali ed esistenti, senza link né testo.
+- **Confusioni** (`src/confusion/`, `src/content/confusion/pairs.ts`): coppie di falsi
+  amici scritte a mano, un lato può essere `'it'` (italiano) perché `Card.language` non
+  lo supporta — solo i lati nelle tre lingue di studio diventano carte
+  (`addContrastCards.ts` lo filtra già, non aggirarlo). Il rilevamento delle interferenze
+  ripetute (`settings.ts`: `confusionMistakes`) persiste **tra sessioni**, non all'interno
+  di un singolo giro d'esercizio: un utente deve confondere la stessa coppia in sessioni
+  diverse prima che scatti la proposta di carta di contrasto — è il comportamento voluto,
+  non un bug.
+- **Pronuncia e dettato** (`src/speech/`, `src/dictation/`): `src/speech/recognition.ts`
+  avvolge `SpeechRecognition`/`webkitSpeechRecognition` con tipi ambiente dedicati (non
+  nella lib standard di TS) e si risolve sempre con `null` in caso di errore o mancato
+  supporto, mai con un'eccezione non gestita — stesso principio di `shadowing.ts` in F3.
+  La guida ai suoni (`src/content/pronunciation/soundGuide.ts`) e le coppie minime
+  (`minimalPairs.ts`) sono scritte a mano: non esiste un dataset aperto di questo tipo.
+  Il dettato confronta posizione per posizione (`diffChars`), non per edit-distance.
 
 ## Deploy
 

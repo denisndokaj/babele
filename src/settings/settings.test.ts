@@ -2,10 +2,16 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { db } from '../db/db'
 import {
   DEFAULT_SESSION_SETTINGS,
+  getConfusionMistakes,
+  getDictationMistakes,
   getOnboardingProfile,
   getSessionSettings,
+  getVoicePreferences,
+  incrementConfusionMistake,
+  recordDictationMistake,
   saveOnboardingProfile,
   saveSessionSettings,
+  setVoicePreference,
 } from './settings'
 
 describe('settings', () => {
@@ -55,5 +61,26 @@ describe('settings', () => {
     expect(await getSessionSettings()).toEqual(DEFAULT_SESSION_SETTINGS)
     await saveSessionSettings({ dailyBudgetMinutes: 40, dailyNewCardLimit: 15 })
     expect(await getSessionSettings()).toEqual({ dailyBudgetMinutes: 40, dailyNewCardLimit: 15 })
+  })
+
+  it('conta le interferenze rilevate per coppia, in modo indipendente', async () => {
+    expect(await getConfusionMistakes()).toEqual({})
+    expect(await incrementConfusionMistake('salir-salire')).toBe(1)
+    expect(await incrementConfusionMistake('salir-salire')).toBe(2)
+    expect(await incrementConfusionMistake('vaso-vaso')).toBe(1)
+    expect(await getConfusionMistakes()).toEqual({ 'salir-salire': 2, 'vaso-vaso': 1 })
+  })
+
+  it('salva la voce preferita per lingua in modo indipendente dalle altre', async () => {
+    await setVoicePreference('fr', 'voice-fr-1')
+    await setVoicePreference('de', 'voice-de-1')
+    expect(await getVoicePreferences()).toEqual({ fr: 'voice-fr-1', de: 'voice-de-1' })
+  })
+
+  it('conta gli errori di dettato per chiave, in modo indipendente', async () => {
+    expect(await getDictationMistakes()).toEqual({})
+    expect(await recordDictationMistake('fr:chat')).toBe(1)
+    expect(await recordDictationMistake('fr:chat')).toBe(2)
+    expect(await getDictationMistakes()).toEqual({ 'fr:chat': 2 })
   })
 })
