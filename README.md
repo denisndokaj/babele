@@ -28,6 +28,7 @@ L'app parte su `http://localhost:5173/` (porta stampata in console).
 | `npm run test:watch` | test in modalità watch |
 | `npm run lint` | lint con Oxlint |
 | `npm run preview` | serve la build di produzione in locale |
+| `npm run data:build` | rigenera `/public/data/<lingua>/vocabulary.json` e `credits.json` |
 
 ## Dati e backup
 
@@ -44,8 +45,18 @@ IndexedDB sul dispositivo.
 
 I contenuti "di massa" (liste di frequenza, frasi di esempio, unità
 grammaticali…) non si scrivono a mano nel codice: vengono generati da una
-pipeline riproducibile in `/scripts` e salvati come JSON in `/public/data/`
-(pipeline introdotta dalla Fase 1, vedi `docs/SPEC.md` §7).
+pipeline riproducibile in `/scripts/pipeline` (vedi `docs/SPEC.md` §7) e
+salvati come JSON in `/public/data/`. Per rigenerarli:
+
+```bash
+npm run data:build
+```
+
+Scarica liste di frequenza da [hermitdave/FrequencyWords](https://github.com/hermitdave/FrequencyWords)
+(MIT/CC-BY-SA-4.0) e frasi d'esempio con traduzione italiana da
+[Tatoeba](https://tatoeba.org/) (CC-BY-2.0-FR); richiede accesso di rete e il
+comando `bunzip2`. Le fonti e le licenze effettivamente usate compaiono nella
+pagina **Crediti e licenze** dell'app.
 
 Testi di canzoni e altri contenuti protetti da copyright non vanno mai
 aggiunti al repo: nelle sezioni Musica e Leggi si incollano a runtime e
@@ -63,6 +74,7 @@ Perché funzioni, nelle impostazioni del repository GitHub, *Settings → Pages
 
 ## Stato del progetto
 
-Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F0 — Fondamenta**
-(scaffold, design system, routing, persistenza locale, export/import, PWA,
-deploy).
+Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F1 — Nucleo**
+(pipeline dati, SRS con FSRS, onboarding e test di livello, piano del
+giorno). F0 — scaffold, design system, routing, persistenza locale,
+export/import, PWA, deploy — è completa.

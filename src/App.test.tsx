@@ -1,11 +1,18 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { render, screen, waitFor } from '@testing-library/react'
+import { beforeEach, describe, expect, it } from 'vitest'
+import { db } from './db/db'
 import { App } from './App'
 
 describe('App', () => {
-  it('mostra la home con il piano del giorno di default', () => {
+  beforeEach(async () => {
+    await db.settings.clear()
+  })
+
+  it('senza onboarding completato, invita a cominciare', async () => {
     render(<App />)
-    expect(screen.getByRole('heading', { name: /home \/ piano del giorno/i })).toBeInTheDocument()
+    await waitFor(() =>
+      expect(screen.getByRole('heading', { name: /benvenuto in babele/i })).toBeInTheDocument(),
+    )
   })
 
   it('espone la navigazione principale verso le altre sezioni', () => {

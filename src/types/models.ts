@@ -26,11 +26,11 @@ export interface LanguageMeta {
 }
 
 export interface Card {
-  id?: number
+  id: number
   language: LanguageCode
   lemma: string
   form: string
-  pos: string
+  pos?: string
   gender?: Gender
   exampleL2: string
   translationIt: string
@@ -45,13 +45,14 @@ export interface Card {
 }
 
 export interface ReviewLog {
-  id?: number
+  id: number
   cardId: number
   due: number
   stability: number
   difficulty: number
   elapsedDays: number
   scheduledDays: number
+  learningSteps: number
   reps: number
   lapses: number
   state: number
@@ -59,7 +60,7 @@ export interface ReviewLog {
 }
 
 export interface GrammarUnit {
-  id?: number
+  id: number
   language: LanguageCode
   cefrLevel: CEFRLevel
   title: string
@@ -70,7 +71,7 @@ export interface GrammarUnit {
 }
 
 export interface Exercise {
-  id?: number
+  id: number
   type: ExerciseType
   payload: unknown
   solution: unknown
@@ -82,7 +83,7 @@ export type MediaType = 'video' | 'film' | 'serie' | 'canzone' | 'podcast' | 'te
 export type MediaStatus = 'da-vedere' | 'in-corso' | 'visto'
 
 export interface MediaItem {
-  id?: number
+  id: number
   type: MediaType
   language: LanguageCode
   level?: CEFRLevel
@@ -93,7 +94,7 @@ export interface MediaItem {
 }
 
 export interface JournalEntry {
-  id?: number
+  id: number
   language: LanguageCode
   text: string
   correctedText?: string
@@ -106,7 +107,7 @@ export interface ConversationMessage {
 }
 
 export interface Conversation {
-  id?: number
+  id: number
   language: LanguageCode
   scenario: string
   messages: ConversationMessage[]
@@ -118,10 +119,11 @@ export interface SessionBlock {
   language: LanguageCode
   minutes: number
   completed: boolean
+  cardIds?: number[]
 }
 
 export interface Session {
-  id?: number
+  id: number
   date: string
   budgetMinutes: number
   blocks: SessionBlock[]
@@ -129,7 +131,7 @@ export interface Session {
 }
 
 export interface DailyStats {
-  id?: number
+  id: number
   date: string
   language: LanguageCode
   wordsKnown: number
@@ -139,7 +141,7 @@ export interface DailyStats {
 }
 
 export interface Settings {
-  id?: number
+  id: number
   key: string
   value: unknown
 }

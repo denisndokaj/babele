@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && tsc -p tsconfig.scripts.json && vite build",
     "test": "vitest run",
     "test:watch": "vitest",
+    "data:build": "tsx scripts/pipeline/run.ts",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -15,7 +16,8 @@
     "dexie": "^4.4.7",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-router-dom": "^7.18.4"
+    "react-router-dom": "^7.18.4",
+    "ts-fsrs": "^5.4.2"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -30,6 +32,7 @@
     "jsdom": "^29.1.1",
     "oxlint": "^1.89.0",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "~7.0.2",
     "vite": "^8.3.5",
     "vite-plugin-pwa": "^2.0.0",

@@ -12,6 +12,8 @@ import { Conversa } from './pages/Conversa'
 import { Confusioni } from './pages/Confusioni'
 import { Statistiche } from './pages/Statistiche'
 import { Impostazioni } from './pages/Impostazioni'
+import { Crediti } from './pages/Crediti'
+import { Onboarding } from './pages/Onboarding'
 
 export function App() {
   return (
@@ -30,6 +32,8 @@ export function App() {
           <Route path="/confusioni" element={<Confusioni />} />
           <Route path="/statistiche" element={<Statistiche />} />
           <Route path="/impostazioni" element={<Impostazioni />} />
+          <Route path="/crediti" element={<Crediti />} />
+          <Route path="/onboarding" element={<Onboarding />} />
         </Route>
       </Routes>
     </HashRouter>

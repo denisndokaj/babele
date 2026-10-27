@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-10-27T21:30:37.259Z",
+  "sources": [
+    {
+      "name": "hermitdave/FrequencyWords",
+      "homepage": "https://github.com/hermitdave/FrequencyWords",
+      "license": "MIT (codice) / CC-BY-SA-4.0 (contenuto)",
+      "note": "Liste di frequenza delle parole, derivate da OpenSubtitles, usate per scegliere il lessico iniziale per lingua."
+    },
+    {
+      "name": "Tatoeba",
+      "homepage": "https://tatoeba.org/",
+      "license": "CC-BY-2.0-FR",
+      "licenseUrl": "https://tatoeba.org/en/terms_of_use#section-6-2",
+      "note": "Frasi d'esempio e relative traduzioni in italiano. Ogni frase riporta, dove disponibile, il contributore originale e un link alla frase su Tatoeba. Frasi usate in questa build: contributi di 396 autori diversi."
+    }
+  ]
+}

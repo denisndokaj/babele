@@ -13,13 +13,19 @@ dist-ssr
 *.local
 coverage
 
+# Download cache della pipeline dati: file grezzi, non vanno committati.
+scripts/pipeline/.cache
+
 # Chiavi, token e dati personali: non devono mai finire nel repo.
 # La chiave API Anthropic e il token del Gist vivono solo in IndexedDB nel browser.
+# Pattern volutamente specifici: wildcard generiche come *token*/*secret* catturano
+# anche codice legittimo (es. "tokenize.ts").
 .env
 .env.*
 *.pem
-*secret*
-*token*
+secrets.*
+*.secrets
+credentials.*
 
 # Editor directories and files
 .vscode/*

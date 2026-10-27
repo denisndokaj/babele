@@ -5,7 +5,7 @@ le sessioni future dal contesto giusto.
 
 ## Stato
 
-Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F0 — Fondamenta**.
+Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F1 — Nucleo**.
 Non passare alla fase successiva senza via libera esplicito dell'utente.
 
 ## Stack
@@ -16,7 +16,9 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
 - `vite-plugin-pwa` per offline/installabilità
 - React Router con **hash routing** (`HashRouter`) — scelto invece di `BrowserRouter`
   per evitare il trucco del fallback SPA su GitHub Pages
+- `ts-fsrs` per lo scheduling SRS (`src/srs/fsrs.ts`)
 - Vitest + Testing Library (`jsdom`, `fake-indexeddb/auto` per i test su Dexie)
+- `tsx` per eseguire la pipeline dati in `/scripts` (Node, non bundle dell'app)
 
 ## Comandi
 
@@ -24,6 +26,8 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
 - `npm run build` — `tsc -b && vite build`, deve restare senza errori
 - `npm test` — `vitest run`, deve restare verde
 - `npm run lint` — `oxlint`
+- `npm run data:build` — rigenera `/public/data/<lingua>/vocabulary.json` e `credits.json`
+  dalla pipeline (richiede `bunzip2` in PATH e accesso di rete)
 
 ## Convenzioni
 
@@ -44,6 +48,25 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
   Impostazioni. Qualsiasi nuova tabella Dexie va aggiunta anche lì.
 - Dark mode manuale (classe `.dark` su `<html>`, toggle in `src/theme.ts`), con default
   alla preferenza di sistema.
+- **Modelli Dexie**: il campo `id` nelle interfacce in `src/types/models.ts` è dichiarato
+  `number` (non opzionale). È `EntityTable<T,'id'>` (in `src/db/db.ts`) a renderlo opzionale
+  solo per l'inserimento: se serve il tipo "da inserire" (senza id), usa `Omit<T, 'id'>`
+  invece di marcare `id` opzionale nell'interfaccia — altrimenti Dexie inferisce la chiave
+  come `number | undefined` anche in lettura.
+- **Stato async con doppio invio**: ogni handler che avvia un'operazione asincrona
+  innescabile due volte da un utente (click doppio, tasto ripetuto) va protetto con un
+  lock (`useRef<boolean>`), non solo con lo stato di React — vedi `answeringRef` in
+  `Onboarding.tsx` e `ratingRef` in `Vocabolario.tsx`. Senza il lock, due inviti concorrenti
+  alla stessa scrittura Dexie possono violare un indice unico (es. `settings.&key`) e
+  duplicare il seeding delle carte.
+- **Impostazioni persistite** in `src/settings/settings.ts` (tabella `settings`, chiave/valore
+  tipizzato): `onboardingProfile` (lingue attive, prioritaria, livelli) e `sessionSettings`
+  (budget minuti, limite nuove carte/giorno). Qualsiasi nuova preferenza duratura va lì,
+  non in `localStorage` (riservato a comodità di UI non critiche, come il tema).
+- **Piano del giorno** (`src/session/planner.ts`): le revisioni dovute hanno sempre
+  priorità sul budget; le nuove carte si riducono (anche a zero) se le revisioni saturano
+  il tempo disponibile, mai il contrario. Le lingue restano in blocchi separati, non si
+  mescolano le carte tra lingue nello stesso blocco (§3.8 SPEC).
 
 ## Deploy
 
