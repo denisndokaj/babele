@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-fr: #2563eb;
+  --color-de: #b91c1c;
+  --color-es: #d97706;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100;
+}
+
+/*
+ * Identità visive per lingua (§3.8/§3.9 SPEC): trattamenti tipografici
+ * distinti senza dipendere da font esterni, per restare offline-first.
+ */
+.font-accent-fr {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.01em;
+}
+
+.font-accent-de {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.font-accent-es {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-style: italic;
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-slate-900 focus:shadow-lg;
+}
