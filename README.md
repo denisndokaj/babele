@@ -74,6 +74,7 @@ Perché funzioni, nelle impostazioni del repository GitHub, *Settings → Pages
 
 ## Stato del progetto
 
-Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F3 — Ascolta &
-guarda** (player video locale/YouTube, sottotitoli doppi, mining
-lessicale, shadowing, catalogo iniziale). F0, F1 e F2 sono complete.
+Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F4 — Leggi e
+Musica** (lettore con evidenziazione per stato, percorso filosofico
+verificato, glossario trilingue, testo di canzoni con cloze e
+playlist). F0, F1, F2 e F3 sono complete.

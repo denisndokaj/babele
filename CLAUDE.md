@@ -5,7 +5,7 @@ le sessioni future dal contesto giusto.
 
 ## Stato
 
-Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F3 — Ascolta & guarda**.
+Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F4 — Leggi e Musica**.
 Non passare alla fase successiva senza via libera esplicito dell'utente.
 
 ## Stack
@@ -86,6 +86,17 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
   prima di aggiungerlo, mai inventato; niente film o podcast finché non si può
   verificarne la disponibilità in modo ripetibile (la disponibilità streaming cambia
   troppo spesso per una verifica singola).
+- **Lettura e musica** (`src/reading/`, `src/music/`): `ClickableChunk` (in `src/reading/`)
+  è il lettore condiviso da Leggi e Musica — stesso meccanismo di clic-per-aggiungere e
+  colorazione per stato (`src/reading/wordStatus.ts`: "nota" = FSRS state Review, "in
+  apprendimento" = carta presente ma non consolidata). Non duplicarlo nelle due pagine.
+  Il percorso filosofico (`src/content/reading/philosophy.ts`) contiene solo estratti
+  verificati parola per parola su Wikisource prima di essere incollati nel codice, con
+  licenza e link alla fonte: ogni nuovo estratto va verificato allo stesso modo (pubblico
+  dominio dell'opera + attribuzione alla trascrizione). I testi delle canzoni incollati
+  dall'utente in Musica restano solo in IndexedDB: non committare mai un testo di
+  canzone, nemmeno come fixture di test. La playlist (`src/content/music/playlist.ts`)
+  cita solo canzoni reali ed esistenti, senza link né testo.
 
 ## Deploy
 
