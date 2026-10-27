@@ -74,7 +74,7 @@ Perché funzioni, nelle impostazioni del repository GitHub, *Settings → Pages
 
 ## Stato del progetto
 
-Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F1 — Nucleo**
-(pipeline dati, SRS con FSRS, onboarding e test di livello, piano del
-giorno). F0 — scaffold, design system, routing, persistenza locale,
-export/import, PWA, deploy — è completa.
+Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F2 — Grammatica**
+(unità A1 contrastive per francese/tedesco/spagnolo, tabelle comparative
+IT/FR/DE/ES). F0 e F1 — scaffold, pipeline dati, SRS, onboarding, piano
+del giorno — sono complete.

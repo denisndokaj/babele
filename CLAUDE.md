@@ -5,7 +5,7 @@ le sessioni future dal contesto giusto.
 
 ## Stato
 
-Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F1 — Nucleo**.
+Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F2 — Grammatica**.
 Non passare alla fase successiva senza via libera esplicito dell'utente.
 
 ## Stack
@@ -67,6 +67,15 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
   priorità sul budget; le nuove carte si riducono (anche a zero) se le revisioni saturano
   il tempo disponibile, mai il contrario. Le lingue restano in blocchi separati, non si
   mescolano le carte tra lingue nello stesso blocco (§3.8 SPEC).
+- **Contenuto grammaticale** (`src/content/grammar/`): a differenza del vocabolario, non
+  viene da una pipeline esterna (non esiste una fonte aperta di spiegazioni contrastive
+  per italofoni) — è scritto a mano come dato tipizzato (`GrammarUnitContent`), non dentro
+  i componenti React. Aggiungere una nuova unità o lingua significa estendere
+  `fr.ts`/`de.ts`/`es.ts` (o un nuovo file), non toccare `Grammatica.tsx`.
+  `src/content/grammar/content.test.ts` verifica automaticamente l'integrità di ogni
+  unità (≥15 esercizi, permutazioni valide dei riordini, indici validi delle scelte
+  multiple…): va tenuto verde quando si aggiunge contenuto. `src/grammar/checkAnswer.ts`
+  contiene la logica di verifica delle risposte, pura e testata separatamente dalla UI.
 
 ## Deploy
 
