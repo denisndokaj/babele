@@ -87,13 +87,20 @@ riconsiderare solo se l'utente lo chiede esplicitamente.
   tappe (un livello alla volta, con verifica e resoconto tra l'una e l'altra), non C2 — a
   quel punto la competenza è lessicale/pragmatica più che grammaticale, e un esercizio a
   scelta multipla sul C2 ha poco senso didattico; il C2 resta coperto da Leggi/Conversa/
-  Scrivi. Stato: **A1 (6 unità/lingua) e A2 (5 unità/lingua) completi**; B1/B2/C1 ancora da
-  scrivere (titoli B1 in `UPCOMING_UNITS`). Gli argomenti NON sono forzati identici tra le
-  tre lingue: 4 argomenti condivisi per livello (scritti separatamente per lingua, stesso
-  `nodeId`) più un quinto argomento specifico dove la grammatica reale lo richiede (es. A2:
-  partitivo per il francese, verbi modali per il tedesco, ser/estar per lo spagnolo) — `nodeId`
+  Scrivi. Stato: **A1 (6 unità/lingua), A2 (5 unità/lingua) e B1 completi**; B2/C1 ancora da
+  scrivere (titoli B2 in `UPCOMING_UNITS`, C1 ancora da definire nel dettaglio). Gli argomenti
+  NON sono forzati identici tra le tre lingue: a A1/A2 ci sono 4-5 argomenti condivisi per
+  livello (scritti separatamente per lingua, stesso `nodeId`) più argomenti specifici dove la
+  grammatica reale lo richiede (es. A2: partitivo FR, verbi modali DE, ser/estar ES); al B1 il
+  tedesco ne ha 4 (casi, verbi separabili, **più** condizionale e congiuntivo tedeschi — il
+  Konjunktiv II e il Konjunktiv I richiedono un trattamento specifico, non il semplice
+  "condizionale"/"congiuntivo" di FR/ES) contro 2 per francese e spagnolo; il B2 pianificato non
+  ha più nemmeno un argomento condiviso (è tutto specifico per lingua, due a testa). `nodeId`
   non va quindi assunto condiviso tra lingue, serve solo a raggruppare le tabelle comparative
-  in `comparativeTables.ts` quando il confronto a 4 colonne è sensato.
+  in `comparativeTables.ts` quando il confronto a 4 colonne è sensato (es. condizionale e
+  congiuntivo al B1: anche se le forme tedesche sono diverse, il confronto concettuale regge).
+  `content.test.ts`: `EXPECTED_UNIT_COUNTS` tiene il conteggio atteso per lingua/livello — va
+  aggiornato ad ogni tappa, non è più un numero fisso uguale per tutte le lingue.
 - **Sottotitoli e video** (`src/subtitles/`, `src/media/`): parser SRT/VTT scritti a mano
   (sono formati di file standard, non un dataset esterno). Il player video locale usa
   `<video>` nativo; YouTube passa sempre dall'IFrame API ufficiale

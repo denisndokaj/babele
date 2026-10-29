@@ -530,4 +530,206 @@ export const DE_UNITS: GrammarUnitContent[] = [
       { l2: 'Ich möchte einen Kaffee.', it: 'Vorrei un caffè.' },
     ],
   },
+  {
+    id: 'de-faelle',
+    language: 'de',
+    cefrLevel: 'B1',
+    nodeId: 'casi-tedeschi',
+    title: 'Die Fälle (Akkusativ und Dativ)',
+    noticingExamples: [
+      { l2: 'Ich sehe den Hund.', it: 'Vedo il cane.' },
+      { l2: 'Ich helfe dem Mann.', it: "Aiuto l'uomo." },
+      { l2: 'Ich gehe in die Schule.', it: 'Vado a scuola.' },
+      { l2: 'Ich bin in der Schule.', it: 'Sono a scuola.' },
+      { l2: 'Ich fahre mit dem Zug.', it: 'Viaggio con il treno.' },
+    ],
+    contrastiveExplanation:
+      "L'italiano non ha un sistema di casi: l'articolo non cambia secondo la funzione della parola " +
+      'nella frase. Il tedesco invece ha 4 casi (Nominativ, Akkusativ, Dativ, Genitiv) che modificano ' +
+      "l'articolo: l'articolo definito maschile 'der' diventa 'den' all'Akkusativ e 'dem' al Dativ; " +
+      "l'articolo indefinito 'ein' diventa 'einen' all'Akkusativ e 'einem' al Dativ. Alcune " +
+      "preposizioni richiedono SEMPRE l'Akkusativ (durch, für, gegen, ohne, um), altre richiedono " +
+      'SEMPRE il Dativ (aus, bei, mit, nach, seit, von, zu) — qui non c\'è scelta, va imparato a ' +
+      "memoria preposizione per preposizione. Le preposizioni di luogo più comuni (in, an, auf, über, " +
+      "unter, vor, hinter, neben, zwischen) sono invece 'a doppio senso': Akkusativ se indicano un " +
+      "movimento verso un luogo (domanda 'wohin?'), Dativ se indicano una posizione statica (domanda " +
+      "'wo?') — 'ich gehe IN DIE Schule' (vado a scuola, movimento, Akkusativ) contro 'ich bin IN DER " +
+      "Schule' (sono a scuola, stato, Dativ).",
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'der' (maschile) all'Akkusativ diventa:", options: ['den', 'dem', 'des'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'der' (maschile) al Dativ diventa:", options: ['dem', 'den', 'des'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "'ein' (maschile) all'Akkusativ diventa:", options: ['einen', 'einem', 'eines'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Quale preposizione richiede sempre l'Akkusativ?", options: ['für', 'mit', 'aus'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: 'Quale preposizione richiede sempre il Dativ?', options: ['mit', 'für', 'durch'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'Ich gehe in die Schule' (movimento) usa:", options: ["l'Akkusativ, perché risponde a 'wohin?'", "il Dativ, perché risponde a 'wo?'", 'il Nominativ'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'multiple-choice', question: "'Ich bin in der Schule' (posizione) usa:", options: ["il Dativ, perché risponde a 'wo?'", "l'Akkusativ, perché risponde a 'wohin?'", 'il Nominativ'], correctIndex: 0 } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Ich sehe ___ Hund.', answer: 'den' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Ich helfe ___ Mann.', answer: 'dem' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'Ich fahre mit ___ Zug.', answer: 'dem' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'vedo il cane', answerL2: 'Ich sehe den Hund.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: "aiuto l'uomo", answerL2: 'Ich helfe dem Mann.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'viaggio con il treno', answerL2: 'Ich fahre mit dem Zug.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['sehe', 'ich', 'Hund', 'den'], answer: ['ich', 'sehe', 'den', 'Hund'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['helfe', 'ich', 'Mann', 'dem'], answer: ['ich', 'helfe', 'dem', 'Mann'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "A differenza dell'italiano, in tedesco l'articolo:", options: ['cambia secondo il caso (funzione nella frase)', 'non cambia mai', 'cambia solo al plurale'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Per scegliere tra Akkusativ e Dativ con una preposizione di luogo a doppio senso, la domanda chiave è:', options: ["'wohin?' (movimento) o 'wo?' (posizione)", 'il genere del sostantivo', 'il numero del sostantivo'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Ich sehe den Hund.', it: 'Vedo il cane.' },
+      { l2: 'Ich helfe dem Mann.', it: "Aiuto l'uomo." },
+      { l2: 'Ich gehe in die Schule.', it: 'Vado a scuola.' },
+      { l2: 'Ich bin in der Schule.', it: 'Sono a scuola.' },
+    ],
+  },
+  {
+    id: 'de-trennbare-verben',
+    language: 'de',
+    cefrLevel: 'B1',
+    nodeId: 'verbi-separabili',
+    title: 'Die trennbaren Verben',
+    noticingExamples: [
+      { l2: 'Ich stehe um 7 Uhr auf.', it: 'Mi alzo alle 7.' },
+      { l2: 'Ich muss früh aufstehen.', it: 'Devo alzarmi presto.' },
+      { l2: 'Ich bin früh aufgestanden.', it: 'Mi sono alzato presto.' },
+      { l2: 'Ruf mich an!', it: 'Chiamami!' },
+      { l2: 'Er versteht das nicht.', it: 'Lui non capisce questo.' },
+    ],
+    contrastiveExplanation:
+      "Molti verbi tedeschi hanno un prefisso che, nelle forme semplici (presente, Präteritum), si " +
+      "SEPARA dal verbo e va alla fine della frase: 'aufstehen' (alzarsi) diventa 'ich stehe... auf' " +
+      "('auf' va in fondo). Con un infinito (dopo un modale, per esempio) il prefisso resta invece " +
+      "attaccato: 'ich muss aufstehen'. Nel Perfekt, il 'ge-' del participio si inserisce TRA il " +
+      "prefisso e la radice: 'aufgestanden'. Esistono anche verbi con prefissi INSEPARABILI (be-, " +
+      "ge-, er-, ver-, zer-, ent-, emp-, miss-) che non si staccano MAI e non prendono 'ge-' al " +
+      "participio: 'verstehen' (capire) resta sempre unito, participio 'verstanden', non " +
+      "'geverstanden'. Il problema per un italiano è che i due tipi di prefisso si SOMIGLIANO " +
+      'visivamente ma si comportano in modo opposto, e non c\'è una regola che permetta di indovinarlo ' +
+      'dal significato: va imparato verbo per verbo quale prefisso è separabile e quale no.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "In 'Ich stehe um 7 Uhr auf', dove va il prefisso 'auf'?", options: ['alla fine della frase', 'subito dopo "ich"', 'prima del verbo'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: 'Con un modale (es. müssen), il prefisso separabile:', options: ["resta attaccato all'infinito", 'si separa comunque', 'scompare'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Participio passato di 'aufstehen':", options: ['aufgestanden', 'geaufstanden', 'aufgesteht'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Participio passato di 'anrufen' (chiamare):", options: ['angerufen', 'geanrufen', 'anrufen'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "Participio passato di 'verstehen' (prefisso inseparabile):", options: ['verstanden', 'geverstanden', 'verstandet'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "I prefissi inseparabili (be-, ver-, er-...) al participio passato:", options: ["non prendono 'ge-'", "prendono sempre 'ge-'", 'si staccano dal verbo'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Ich stehe um 7 Uhr ___.', answer: 'auf' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Ich muss früh ___.', answer: 'aufstehen' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Ruf mich ___!', answer: 'an' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'Er ___ das nicht.', answer: 'versteht' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'mi alzo alle 7', answerL2: 'Ich stehe um 7 Uhr auf.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'devo alzarmi presto', answerL2: 'Ich muss früh aufstehen.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'chiamami!', answerL2: 'Ruf mich an!' } },
+      { id: 'ex14', payload: { type: 'translation-it-l2', promptIt: 'lui non capisce questo', answerL2: 'Er versteht das nicht.' } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['stehe', 'ich', 'auf', 'um', 'Uhr', '7'], answer: ['ich', 'stehe', 'um', '7', 'Uhr', 'auf'] } },
+      { id: 'ex16', payload: { type: 'reorder', words: ['mich', 'ruf', 'an'], answer: ['ruf', 'mich', 'an'] } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Qual è la differenza principale tra prefisso separabile e inseparabile?', options: ['il separabile si stacca e va in fondo alla frase, l\'inseparabile resta sempre unito', 'sono sinonimi', "l'inseparabile si usa solo al plurale"], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Ich stehe um 7 Uhr auf.', it: 'Mi alzo alle 7.' },
+      { l2: 'Ich muss früh aufstehen.', it: 'Devo alzarmi presto.' },
+      { l2: 'Ruf mich an!', it: 'Chiamami!' },
+      { l2: 'Er versteht das nicht.', it: 'Lui non capisce questo.' },
+    ],
+  },
+  {
+    id: 'de-konjunktiv-2',
+    language: 'de',
+    cefrLevel: 'B1',
+    nodeId: 'condizionale',
+    title: 'Der Konjunktiv II (il condizionale tedesco)',
+    noticingExamples: [
+      { l2: 'Ich würde kommen.', it: 'Verrei.' },
+      { l2: 'Wenn ich Zeit hätte, würde ich kommen.', it: 'Se avessi tempo, verrei.' },
+      { l2: 'Ich wäre froh.', it: 'Sarei contento.' },
+      { l2: 'Könntest du mir helfen?', it: 'Potresti aiutarmi?' },
+      { l2: 'Das wäre schön.', it: 'Sarebbe bello.' },
+    ],
+    contrastiveExplanation:
+      'A differenza di italiano, francese e spagnolo, che hanno un modo condizionale con una forma ' +
+      "verbale propria per ogni verbo, il tedesco non ha un vero 'condizionale' morfologico per la " +
+      "maggior parte dei verbi: usa il Konjunktiv II, che per i verbi regolari si costruisce quasi " +
+      "sempre con 'würde' (una forma di werden) + infinito — una struttura analitica, come nel Futur " +
+      "I ('ich würde kommen' = verrei). Solo un piccolo gruppo di verbi molto comuni ha ancora una " +
+      "forma sintetica di Konjunktiv II preferita a 'würde': sein→wäre (sarei), haben→hätte (avrei), " +
+      'können→könnte (potrei), müssen→müsste (dovrei). Queste forme sintetiche sono più usate nel ' +
+      "parlato rispetto a 'würde sein', 'würde haben', che suonano pesanti. Nelle frasi ipotetiche " +
+      "con 'wenn' (se), si usa il Konjunktiv II in entrambe le parti della frase: 'wenn ich Zeit " +
+      "HÄTTE, WÜRDE ich kommen' (se avessi tempo, verrei).",
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Verrei' in tedesco si dice più spesso:", options: ['Ich würde kommen.', 'Ich komme würde.', 'Ich kommte.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Konjunktiv II (forma sintetica) di 'sein', io:", options: ['ich wäre', 'ich würde sein', 'ich bin'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Konjunktiv II (forma sintetica) di 'haben', io:", options: ['ich hätte', 'ich würde haben', 'ich habe'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Konjunktiv II (forma sintetica) di 'können', tu:", options: ['du könntest', 'du würdest können', 'du kannst'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: 'Per i verbi regolari, il Konjunktiv II si forma di solito con:', options: ['würde + infinito', 'una desinenza propria', 'haben + participio'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'Das wäre schön' significa:", options: ['sarebbe bello', 'è bello', 'sarà bello'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Ich ___ kommen.', answer: 'würde' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Wenn ich Zeit ___, würde ich kommen.', answer: 'hätte' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Ich ___ froh.', answer: 'wäre' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: '___ du mir helfen?', answer: 'Könntest' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'verrei', answerL2: 'Ich würde kommen.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'sarei contento', answerL2: 'Ich wäre froh.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'potresti aiutarmi?', answerL2: 'Könntest du mir helfen?' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['würde', 'ich', 'kommen'], answer: ['ich', 'würde', 'kommen'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['wäre', 'ich', 'froh'], answer: ['ich', 'wäre', 'froh'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: 'A differenza delle altre lingue, il tedesco per il condizionale:', options: ['non ha una forma propria per ogni verbo, usa soprattutto würde + infinito', "ha una desinenza unica come l'italiano", "usa sempre l'ausiliare haben"], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "Quali verbi preferiscono la forma sintetica a 'würde'?", options: ['sein, haben, können, müssen (verbi molto comuni)', 'tutti i verbi regolari', 'nessuno, si usa sempre würde'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Ich würde kommen.', it: 'Verrei.' },
+      { l2: 'Wenn ich Zeit hätte, würde ich kommen.', it: 'Se avessi tempo, verrei.' },
+      { l2: 'Ich wäre froh.', it: 'Sarei contento.' },
+      { l2: 'Könntest du mir helfen?', it: 'Potresti aiutarmi?' },
+    ],
+  },
+  {
+    id: 'de-konjunktiv-1',
+    language: 'de',
+    cefrLevel: 'B1',
+    nodeId: 'congiuntivo',
+    title: 'Der Konjunktiv I (il discorso indiretto)',
+    noticingExamples: [
+      { l2: 'Er sagt, er sei müde.', it: 'Dice che è stanco.' },
+      { l2: 'Sie sagte, sie komme morgen.', it: 'Ha detto che viene domani.' },
+      { l2: 'Er behauptet, er habe recht.', it: 'Sostiene che ha ragione.' },
+      { l2: 'Ich glaube, dass er kommt.', it: 'Penso che venga.' },
+      { l2: 'Man sagt, das Wetter werde besser.', it: 'Si dice che il tempo migliorerà.' },
+    ],
+    contrastiveExplanation:
+      "A differenza dell'italiano, che usa il congiuntivo molto spesso (dopo 'penso che', 'credo " +
+      "che', 'voglio che'...), il tedesco lo usa molto meno: nella conversazione quotidiana, dopo " +
+      "verbi come 'glauben' (credere) o 'denken' (pensare), si usa semplicemente l'INDICATIVO " +
+      "normale ('ich glaube, dass er kommt' = penso che venga, con l'indicativo 'kommt', non un " +
+      "congiuntivo). Il Konjunktiv I esiste, ma si usa quasi esclusivamente per il discorso indiretto " +
+      "in un registro formale o giornalistico, per segnalare che si riportano le parole di qualcun " +
+      "altro senza garantirne la veridicità: 'er sagt, er SEI müde' (dice che È stanco — 'sei' è " +
+      "Konjunktiv I di 'sein'). Nel parlato informale, i tedeschi spesso evitano il Konjunktiv I e " +
+      "usano l'indicativo anche nel discorso indiretto ('er sagt, er ist müde'). Da notare: questo " +
+      "Konjunktiv I è un modo DIVERSO dal Konjunktiv II visto nell'unità sul condizionale — stesso " +
+      'nome di famiglia, uso completamente diverso.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Konjunktiv I di 'sein' (3ª sing.):", options: ['sei', 'ist', 'wäre'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'Er sagt, er sei müde' è un esempio di:", options: ['discorso indiretto formale (Konjunktiv I)', 'condizionale (Konjunktiv II)', 'futuro'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Dopo 'glauben' (credere), nel parlato quotidiano il tedesco usa di solito:", options: ["l'indicativo normale", 'sempre il Konjunktiv I', 'sempre il Konjunktiv II'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: 'Il Konjunktiv I e il Konjunktiv II sono:', options: ['due modi diversi con usi diversi (discorso indiretto vs condizionale)', 'la stessa cosa', 'sinonimi intercambiabili'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'Ich glaube, dass er kommt' usa:", options: ["l'indicativo, non un congiuntivo", 'il Konjunktiv I', 'il Konjunktiv II'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'cloze', sentence: 'Er sagt, er ___ müde.', answer: 'sei' } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Sie sagte, sie ___ morgen.', answer: 'komme' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Er behauptet, er ___ recht.', answer: 'habe' } },
+      { id: 'ex9', payload: { type: 'translation-it-l2', promptIt: 'dice che è stanco', answerL2: 'Er sagt, er sei müde.' } },
+      { id: 'ex10', payload: { type: 'translation-it-l2', promptIt: 'ha detto che viene domani', answerL2: 'Sie sagte, sie komme morgen.' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'sostiene che ha ragione', answerL2: 'Er behauptet, er habe recht.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'penso che venga', answerL2: 'Ich glaube, dass er kommt.' } },
+      { id: 'ex13', payload: { type: 'reorder', words: ['sagt', 'er', 'müde', 'sei', 'er'], answer: ['er', 'sagt', 'er', 'sei', 'müde'] } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['dass', 'glaube', 'ich', 'kommt', 'er'], answer: ['ich', 'glaube', 'dass', 'er', 'kommt'] } },
+      { id: 'ex15', payload: { type: 'multiple-choice', question: 'Il Konjunktiv I si usa soprattutto per:', options: ['il discorso indiretto in un registro formale/giornalistico', 'le ipotesi sul presente', 'le richieste gentili'], correctIndex: 0 } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "Rispetto all'italiano, il tedesco usa il congiuntivo:", options: ['molto meno spesso, riservandolo quasi solo al discorso indiretto formale', 'molto più spesso', 'esattamente nelle stesse occasioni'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Nel parlato informale, al posto del Konjunktiv I i tedeschi spesso usano:', options: ["l'indicativo normale", 'sempre il Konjunktiv II', 'il Perfekt'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Er sagt, er sei müde.', it: 'Dice che è stanco.' },
+      { l2: 'Sie sagte, sie komme morgen.', it: 'Ha detto che viene domani.' },
+      { l2: 'Er behauptet, er habe recht.', it: 'Sostiene che ha ragione.' },
+      { l2: 'Ich glaube, dass er kommt.', it: 'Penso che venga.' },
+    ],
+  },
 ]

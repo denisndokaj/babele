@@ -525,4 +525,104 @@ export const ES_UNITS: GrammarUnitContent[] = [
       { l2: 'Está lloviendo.', it: 'Sta piovendo.' },
     ],
   },
+  {
+    id: 'es-condicional',
+    language: 'es',
+    cefrLevel: 'B1',
+    nodeId: 'condizionale',
+    title: 'El condicional simple',
+    noticingExamples: [
+      { l2: 'Querría un café.', it: 'Vorrei un caffè.' },
+      { l2: 'Si tuviera dinero, compraría un coche.', it: 'Se avessi dei soldi, comprerei una macchina.' },
+      { l2: 'Deberías salir.', it: 'Dovresti uscire.' },
+      { l2: 'Sería feliz.', it: 'Sarebbe felice.' },
+      { l2: 'Podríamos venir mañana.', it: 'Potremmo venire domani.' },
+    ],
+    contrastiveExplanation:
+      'Il condicional semplice spagnolo è regolare come il futuro: le stesse desinenze (-ía, -ías, ' +
+      '-ía, -íamos, -íais, -ían) si attaccano all\'infinito intero, per TUTTI i verbi — e usa le ' +
+      'STESSE radici irregolari del futuro (tener→tendría, poder→podría, hacer→haría, decir→diría, ' +
+      'poner→pondría, querer→querría, saber→sabría, salir→saldría, venir→vendría): se conosci il ' +
+      'futuro irregolare di un verbo, conosci già anche il condicional. Nelle frasi ipotetiche con ' +
+      '"si" (se), lo spagnolo usa il CONGIUNTIVO IMPERFETTO dopo "si" (si tuviera, non "si tendría") ' +
+      'e il condicional nella principale — qui lo spagnolo si comporta come l\'italiano (se avessi, ' +
+      'congiuntivo + condizionale), a differenza del francese che usa l\'imperfetto indicativo dopo ' +
+      '"si".',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Condicional di 'querer', io:", options: ['querría', 'quiero', 'querré', 'quería'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Condicional di 'tener', io:", options: ['tendría', 'tenería', 'tendré'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Condicional di 'poder', noi:", options: ['podríamos', 'podemos', 'podremos'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Condicional di 'ser', lei:", options: ['sería', 'es', 'será'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: 'Le desinenze del condicional spagnolo cambiano in base alla conjugazione?', options: ['no, sono sempre le stesse', 'sì, come in italiano'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: 'Nella frase con "si" (se), lo spagnolo usa nella proposizione con "si":', options: ["il congiuntivo imperfetto, come l'italiano", 'l\'indicativo, come il francese', 'il condicional'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: '___ un café.', answer: 'Querría' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Si tuviera dinero, ___ un coche.', answer: 'compraría' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: '___ salir.', answer: 'Deberías' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: '___ feliz.', answer: 'Sería' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'vorrei un caffè', answerL2: 'Querría un café.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'dovresti uscire', answerL2: 'Deberías salir.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'sarebbe felice', answerL2: 'Sería feliz.' } },
+      { id: 'ex14', payload: { type: 'translation-it-l2', promptIt: 'potremmo venire domani', answerL2: 'Podríamos venir mañana.' } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['un', 'querría', 'café'], answer: ['querría', 'un', 'café'] } },
+      { id: 'ex16', payload: { type: 'reorder', words: ['salir', 'deberías'], answer: ['deberías', 'salir'] } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Il condicional spagnolo usa le stesse radici irregolari:', options: ['del futuro', 'del presente', 'del subjuntivo'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Querría un café.', it: 'Vorrei un caffè.' },
+      { l2: 'Si tuviera dinero, compraría un coche.', it: 'Se avessi dei soldi, comprerei una macchina.' },
+      { l2: 'Deberías salir.', it: 'Dovresti uscire.' },
+      { l2: 'Podríamos venir mañana.', it: 'Potremmo venire domani.' },
+    ],
+  },
+  {
+    id: 'es-subjuntivo',
+    language: 'es',
+    cefrLevel: 'B1',
+    nodeId: 'congiuntivo',
+    title: 'El presente de subjuntivo',
+    noticingExamples: [
+      { l2: 'Quiero que vengas.', it: 'Voglio che tu venga.' },
+      { l2: 'Es importante que estudies.', it: 'È importante che tu studi.' },
+      { l2: 'Me alegro de que estés aquí.', it: 'Sono felice che tu sia qui.' },
+      { l2: 'Creo que viene.', it: 'Penso che venga.' },
+      { l2: 'No creo que venga.', it: 'Non penso che venga.' },
+    ],
+    contrastiveExplanation:
+      'Il subjuntivo spagnolo si forma scambiando le desinenze: per i verbi in -ar, le vocali ' +
+      'diventano -e (hablar→hable); per i verbi in -er/-ir, diventano -a (comer→coma, vivir→viva). ' +
+      'Il suo uso con verbi/espressioni di desiderio, necessità, emozione (querer que, es importante ' +
+      'que, me alegro de que...) è molto simile all\'italiano: qui l\'intuizione di un italofono ' +
+      'funziona bene, a differenza del francese. C\'è però una differenza sottile con i verbi di ' +
+      'opinione come "creer" e "pensar": in forma AFFERMATIVA questi verbi prendono l\'INDICATIVO ' +
+      'perché esprimono una certezza del parlante ("creo que viene" = penso che viene, con ' +
+      'certezza), mentre diventano subjuntivo solo se negati o se esprimono dubbio ("no creo que ' +
+      'venga"). L\'italiano invece usa il congiuntivo con "credere che" anche in forma affermativa ' +
+      '("credo che venga") — su questo punto specifico lo spagnolo si comporta più come il francese ' +
+      'che come l\'italiano.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Subjuntivo di 'hablar', io:", options: ['hable', 'hablo', 'hablaré'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Subjuntivo di 'comer', tu:", options: ['comas', 'comes', 'comerás'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Subjuntivo di 'vivir', lui:", options: ['viva', 'vive', 'vivirá'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "'Creo que viene' (affermativo, certezza) usa:", options: ["l'indicativo", 'il subjuntivo', 'il condicional'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'No creo que venga' (negato, dubbio) usa:", options: ['il subjuntivo', "l'indicativo", 'il condicional'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'Quiero que vengas' usa:", options: ['il subjuntivo, perché esprime un desiderio', "l'indicativo", 'il condicional'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Quiero que ___.', answer: 'vengas' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Es importante que ___.', answer: 'estudies' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Me alegro de que ___ aquí.', answer: 'estés' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'No creo que ___.', answer: 'venga' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'voglio che tu venga', answerL2: 'Quiero que vengas.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'è importante che tu studi', answerL2: 'Es importante que estudies.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'sono felice che tu sia qui', answerL2: 'Me alegro de que estés aquí.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['que', 'quiero', 'vengas'], answer: ['quiero', 'que', 'vengas'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['que', 'creo', 'no', 'venga'], answer: ['no', 'creo', 'que', 'venga'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "A differenza dell'italiano, con 'creer'/'pensar' in forma affermativa lo spagnolo usa:", options: ["l'indicativo, non il subjuntivo", 'sempre il subjuntivo', 'il condicional'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "L'uso del subjuntivo con verbi di desiderio/necessità/emozione è, rispetto all'italiano:", options: ['molto simile', 'completamente diverso', 'inesistente in spagnolo'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Quiero que vengas.', it: 'Voglio che tu venga.' },
+      { l2: 'Es importante que estudies.', it: 'È importante che tu studi.' },
+      { l2: 'Creo que viene.', it: 'Penso che venga.' },
+      { l2: 'No creo que venga.', it: 'Non penso che venga.' },
+    ],
+  },
 ]

@@ -5,6 +5,18 @@ import type { GrammarUnitContent } from '../../types/grammarContent'
 
 const MIN_EXERCISES = 15
 
+/**
+ * Conteggio atteso di unità per lingua e livello. Al B1 il tedesco ne ha due in più (casi,
+ * verbi separabili): sono argomenti strutturali tedeschi senza un equivalente che richieda
+ * un'unità propria in francese/spagnolo (§CLAUDE.md: gli argomenti non sono forzati identici
+ * tra le lingue).
+ */
+const EXPECTED_UNIT_COUNTS: Record<string, Partial<Record<'A1' | 'A2' | 'B1', number>>> = {
+  fr: { A1: 6, A2: 5, B1: 2 },
+  de: { A1: 6, A2: 5, B1: 4 },
+  es: { A1: 6, A2: 5, B1: 2 },
+}
+
 function sortedWords(words: string[]): string[] {
   return [...words].map((w) => w.toLowerCase()).sort()
 }
@@ -12,14 +24,13 @@ function sortedWords(words: string[]): string[] {
 describe('unità grammaticali', () => {
   for (const language of LANGUAGE_CODES) {
     const units = getUnitsForLanguage(language)
+    const expectedCounts = EXPECTED_UNIT_COUNTS[language] ?? {}
 
-    it(`${language}: esistono le 6 unità A1 previste`, () => {
-      expect(units.filter((u) => u.cefrLevel === 'A1')).toHaveLength(6)
-    })
-
-    it(`${language}: esistono le 5 unità A2 previste`, () => {
-      expect(units.filter((u) => u.cefrLevel === 'A2')).toHaveLength(5)
-    })
+    for (const [level, expectedCount] of Object.entries(expectedCounts)) {
+      it(`${language}: esistono le ${expectedCount} unità ${level} previste`, () => {
+        expect(units.filter((u) => u.cefrLevel === level)).toHaveLength(expectedCount as number)
+      })
+    }
 
     it(`${language}: ogni unità ha un id, un nodeId e un titolo univoci tra le unità della lingua`, () => {
       expect(new Set(units.map((u) => u.id)).size).toBe(units.length)

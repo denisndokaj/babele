@@ -140,4 +140,24 @@ export const COMPARATIVE_TABLES: ComparativeTable[] = [
       { label: 'Posizione rispetto al verbo', it: 'prima del verbo coniugato', fr: 'prima del verbo coniugato', de: 'posto normale nella frase (non si attacca)', es: 'prima del verbo coniugato' },
     ],
   },
+  {
+    nodeId: 'condizionale',
+    title: 'Il condizionale',
+    note: 'Il tedesco è l\'unica delle tre lingue senza una forma propria per ogni verbo: usa soprattutto "würde" + infinito, o poche forme sintetiche per i verbi più comuni.',
+    rows: [
+      { label: 'Si forma con', it: "radice del futuro + desinenze proprie", fr: "radice del futuro + desinenze dell'imperfetto", de: "würde + infinito (poche forme sintetiche: wäre, hätte, könnte...)", es: "infinito + desinenze proprie (-ía...)" },
+      { label: 'Esempio ("vorrei")', it: 'vorrei', fr: 'je voudrais', de: 'ich würde wollen / ich möchte', es: 'querría' },
+      { label: 'Nella frase con "se" (ipotesi)', it: 'se + congiuntivo imperfetto, poi condizionale', fr: "si + imperfetto indicativo, poi condizionale", de: 'wenn + Konjunktiv II, poi Konjunktiv II', es: 'si + congiuntivo imperfetto, poi condicional' },
+    ],
+  },
+  {
+    nodeId: 'congiuntivo',
+    title: 'Congiuntivo',
+    note: 'Il tedesco lo riserva quasi solo al discorso indiretto formale (Konjunktiv I); francese e spagnolo lo usano con regole diverse dall\'italiano per i verbi di opinione.',
+    rows: [
+      { label: "Dopo 'penso/credo che' (affermativo)", it: 'congiuntivo', fr: "indicativo (je pense qu'il vient)", de: "indicativo (ich glaube, dass er kommt)", es: "indicativo se affermativo, subjuntivo se negato" },
+      { label: "Dopo espressioni di desiderio/necessità", it: 'congiuntivo', fr: 'subjonctif', de: 'quasi mai un congiuntivo, resta indicativo', es: 'subjuntivo' },
+      { label: 'Uso principale nel tedesco', it: '—', fr: '—', de: 'discorso indiretto formale (Konjunktiv I)', es: '—' },
+    ],
+  },
 ]

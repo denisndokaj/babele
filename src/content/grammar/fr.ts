@@ -531,4 +531,105 @@ export const FR_UNITS: GrammarUnitContent[] = [
       { l2: 'Il ne mange pas de viande.', it: 'Non mangia carne.' },
     ],
   },
+  {
+    id: 'fr-conditionnel',
+    language: 'fr',
+    cefrLevel: 'B1',
+    nodeId: 'condizionale',
+    title: 'Le conditionnel présent',
+    noticingExamples: [
+      { l2: 'Je voudrais un café.', it: 'Vorrei un caffè.' },
+      { l2: "Si j'avais de l'argent, j'achèterais une voiture.", it: 'Se avessi dei soldi, comprerei una macchina.' },
+      { l2: 'Tu devrais partir.', it: 'Dovresti partire.' },
+      { l2: 'Elle serait contente.', it: 'Sarebbe contenta.' },
+      { l2: 'Nous pourrions venir demain.', it: 'Potremmo venire domani.' },
+    ],
+    contrastiveExplanation:
+      'Come l\'italiano, il francese forma il condizionale presente a partire dalla stessa radice ' +
+      'del futuro (le stesse irregolarità: être→ser-, avoir→aur-, aller→ir-, faire→fer-), ma con ' +
+      'desinenze diverse (-ais, -ais, -ait, -ions, -iez, -aient) che assomigliano a quelle ' +
+      'dell\'imperfetto, non del futuro: "je parlerais" (parlerei) è "parler-" (radice del futuro) + ' +
+      '"-ais" (desinenza dell\'imperfetto). L\'uso principale — richieste gentili (je voudrais), ' +
+      'consigli (tu devrais), ipotesi (si j\'avais...) — è molto simile all\'italiano. Una differenza ' +
+      'importante riguarda le frasi ipotetiche con "se/si": l\'italiano usa il congiuntivo imperfetto ' +
+      'nella proposizione con "se" (se avessi) e il condizionale nella principale, mentre il francese ' +
+      'usa l\'IMPERFETTO DELL\'INDICATIVO dopo "si" (si j\'avais, non un congiuntivo) e il condizionale ' +
+      'nella principale.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Condizionale di 'vouloir', io:", options: ['je voudrais', 'je veux', 'je voulais', 'je voudrai'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Condizionale di 'être', lei:", options: ['elle serait', 'elle est', 'elle était', 'elle sera'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Condizionale di 'pouvoir', noi:", options: ['nous pourrions', 'nous pouvons', 'nous pourrons', 'nous pouvions'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Condizionale di 'devoir', tu:", options: ['tu devrais', 'tu dois', 'tu devras', 'tu devais'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "Nella proposizione con 'si' (se), il francese usa:", options: ["l'imperfetto dell'indicativo", 'il congiuntivo', 'il condizionale'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'cloze', sentence: 'Je ___ un café.', answer: 'voudrais' } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: "Si j'avais de l'argent, j'___ une voiture.", answer: 'achèterais' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Tu ___ partir.', answer: 'devrais' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Elle ___ contente.', answer: 'serait' } },
+      { id: 'ex10', payload: { type: 'translation-it-l2', promptIt: 'vorrei un caffè', answerL2: 'Je voudrais un café.' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'dovresti partire', answerL2: 'Tu devrais partir.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'sarebbe contenta', answerL2: 'Elle serait contente.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'potremmo venire domani', answerL2: 'Nous pourrions venir demain.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['un', 'voudrais', 'je', 'café'], answer: ['je', 'voudrais', 'un', 'café'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['devrais', 'tu', 'partir'], answer: ['tu', 'devrais', 'partir'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: 'Il condizionale francese si forma con:', options: ["radice del futuro + desinenze dell'imperfetto", 'radice del presente + desinenze proprie', 'ausiliare + participio'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "'Si j'avais de l'argent' significa:", options: ['se avessi dei soldi', 'se ho dei soldi', 'se avrò dei soldi'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Je voudrais un café.', it: 'Vorrei un caffè.' },
+      { l2: "Si j'avais de l'argent, j'achèterais une voiture.", it: 'Se avessi dei soldi, comprerei una macchina.' },
+      { l2: 'Tu devrais partir.', it: 'Dovresti partire.' },
+      { l2: 'Nous pourrions venir demain.', it: 'Potremmo venire domani.' },
+    ],
+  },
+  {
+    id: 'fr-subjonctif',
+    language: 'fr',
+    cefrLevel: 'B1',
+    nodeId: 'congiuntivo',
+    title: 'Le subjonctif présent',
+    noticingExamples: [
+      { l2: 'Il faut que tu partes.', it: 'Bisogna che tu parta.' },
+      { l2: 'Je veux que tu viennes.', it: 'Voglio che tu venga.' },
+      { l2: 'Je suis content que tu sois là.', it: 'Sono contento che tu sia qui.' },
+      { l2: "Bien qu'il soit tard, je reste.", it: 'Anche se è tardi, resto.' },
+      { l2: 'Je pense qu\'il vient.', it: 'Penso che venga.' },
+    ],
+    contrastiveExplanation:
+      'Il subjonctif francese si forma, per la maggior parte dei verbi, dalla radice della 3ª ' +
+      'persona plurale del presente indicativo + desinenze proprie (-e, -es, -e, -ions, -iez, -ent): ' +
+      'parler → ils parlent → que je parle. Alcuni verbi comuni sono irregolari: être→que je sois, ' +
+      'avoir→que j\'aie, faire→que je fasse, aller→que j\'aille, pouvoir→que je puisse. La vera ' +
+      'trappola per un italiano non è la forma, ma l\'USO: il francese usa il subjonctif dopo ' +
+      'espressioni di necessità, volontà, emozione, dubbio (il faut que, je veux que, je suis ' +
+      'content que, bien que), ESATTAMENTE come l\'italiano usa il congiuntivo in questi casi. Ma ' +
+      'dopo verbi di opinione come "penser que" o "croire que" in forma affermativa, il francese usa ' +
+      'l\'INDICATIVO ("je pense qu\'il vient"), mentre l\'italiano usa quasi sempre il congiuntivo ' +
+      '("penso che venga") — questo è l\'errore più comune per un italofono che impara il francese, ' +
+      'nella direzione opposta a quella abituale: qui è il francese a essere "più semplice".',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Subjonctif di 'parler', io:", options: ['que je parle', 'que je parles', 'que je parlerai', 'que je parlais'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Subjonctif irregolare di 'être', io:", options: ['que je sois', 'que je suis', 'que je serai'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Subjonctif irregolare di 'avoir', io:", options: ["que j'aie", "que j'ai", "que j'aurai"], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Subjonctif irregolare di 'faire', io:", options: ['que je fasse', 'que je fais', 'que je ferai'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'Je pense qu'il vient' usa:", options: ["l'indicativo", 'il subjonctif', 'il condizionale'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'Il faut que tu partes' usa:", options: ['il subjonctif', "l'indicativo", 'il condizionale'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Il faut que tu ___.', answer: 'partes' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Je veux que tu ___.', answer: 'viennes' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Je suis content que tu ___ là.', answer: 'sois' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: "Bien qu'il ___ tard, je reste.", answer: 'soit' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'bisogna che tu parta', answerL2: 'Il faut que tu partes.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'voglio che tu venga', answerL2: 'Je veux que tu viennes.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'sono contento che tu sia qui', answerL2: 'Je suis content que tu sois là.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['que', 'il', 'partes', 'faut', 'tu'], answer: ['il', 'faut', 'que', 'tu', 'partes'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['veux', 'que', 'je', 'viennes', 'tu'], answer: ['je', 'veux', 'que', 'tu', 'viennes'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "A differenza dell'italiano, dopo 'je pense que' (affermativo) il francese usa:", options: ["l'indicativo, non il subjonctif", 'sempre il subjonctif', 'il condizionale'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Il subjonctif si forma di solito dalla radice:', options: ['della 3ª plurale del presente indicativo', 'del participio passato', "dell'infinito"], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Il faut que tu partes.', it: 'Bisogna che tu parta.' },
+      { l2: 'Je veux que tu viennes.', it: 'Voglio che tu venga.' },
+      { l2: 'Je suis content que tu sois là.', it: 'Sono contento che tu sia qui.' },
+      { l2: "Je pense qu'il vient.", it: 'Penso che venga.' },
+    ],
+  },
 ]
