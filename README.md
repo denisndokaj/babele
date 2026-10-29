@@ -74,7 +74,6 @@ Perché funzioni, nelle impostazioni del repository GitHub, *Settings → Pages
 
 ## Stato del progetto
 
-Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F5 —
-Pronuncia, dettato, confusioni** (guida ai suoni, scelta della voce TTS,
-riconoscimento vocale, dettato con errori ricorrenti, coppie minime,
-falsi amici con rilevamento delle interferenze). F0–F4 sono complete.
+Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F6 — LLM**
+(diario con correzione opzionale via API Anthropic, tutor di conversazione
+a scenari con riepilogo degli errori a fine sessione). F0–F5 sono complete.

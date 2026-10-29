@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom'
 import { downloadBackup, importBackup } from '../db/backup'
 import { LANGUAGES } from '../languages'
 import {
+  clearApiKey,
+  getApiKey,
   getOnboardingProfile,
   getSessionSettings,
   saveSessionSettings,
+  setApiKey,
   type OnboardingProfile,
   type SessionSettings,
 } from '../settings/settings'
@@ -15,11 +18,38 @@ export function Impostazioni() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [profile, setProfile] = useState<OnboardingProfile | null>(null)
   const [sessionSettings, setSessionSettings] = useState<SessionSettings | null>(null)
+  const [apiKey, setApiKeyState] = useState('')
+  const [apiKeySaved, setApiKeySaved] = useState(false)
+  const [showApiKey, setShowApiKey] = useState(false)
+  const savingKeyRef = useRef(false)
 
   useEffect(() => {
     void getOnboardingProfile().then((p) => setProfile(p ?? null))
     void getSessionSettings().then(setSessionSettings)
+    void getApiKey().then((key) => {
+      setApiKeySaved(!!key)
+      setApiKeyState(key ?? '')
+    })
   }, [])
+
+  async function handleSaveApiKey() {
+    if (savingKeyRef.current || !apiKey.trim()) return
+    savingKeyRef.current = true
+    try {
+      await setApiKey(apiKey.trim())
+      setApiKeySaved(true)
+      setMessage('Chiave API salvata in locale su questo dispositivo.')
+    } finally {
+      savingKeyRef.current = false
+    }
+  }
+
+  async function handleClearApiKey() {
+    await clearApiKey()
+    setApiKeyState('')
+    setApiKeySaved(false)
+    setMessage('Chiave API rimossa da questo dispositivo.')
+  }
 
   async function updateSessionSettings(next: SessionSettings) {
     setSessionSettings(next)
@@ -163,14 +193,67 @@ export function Impostazioni() {
       </div>
 
       <div>
-        <h2 className="text-lg font-semibold">Chiave API e sincronizzazione</h2>
+        <h2 className="text-lg font-semibold">Chiave API Anthropic</h2>
         <p className="mt-1 max-w-prose text-slate-600 dark:text-slate-300">
-          La chiave API Anthropic (facoltativa) sarà salvata solo in IndexedDB, mai nel codice.
+          Facoltativa: abilita la correzione del diario in <Link to="/scrivi" className="underline">Scrivi</Link> e
+          il tutor di conversazione in <Link to="/conversa" className="underline">Conversa</Link>. Resta salvata
+          solo in IndexedDB su questo dispositivo, mai nel codice o nel repository. Puoi crearne una
+          sulla{' '}
+          <a href="https://platform.claude.com/settings/keys" target="_blank" rel="noreferrer" className="underline">
+            Console Anthropic
+          </a>
+          .
+        </p>
+        <div className="mt-3 flex max-w-prose flex-wrap items-center gap-2">
+          <input
+            type={showApiKey ? 'text' : 'password'}
+            value={apiKey}
+            onChange={(e) => setApiKeyState(e.target.value)}
+            placeholder="sk-ant-..."
+            aria-label="Chiave API Anthropic"
+            autoComplete="off"
+            className="min-w-0 max-w-full flex-1 rounded border border-slate-400 bg-transparent px-2 py-1 dark:border-slate-600"
+          />
+          <button
+            type="button"
+            onClick={() => setShowApiKey((v) => !v)}
+            className="rounded border border-slate-400 px-3 py-1 text-sm dark:border-slate-600"
+          >
+            {showApiKey ? 'Nascondi' : 'Mostra'}
+          </button>
+        </div>
+        <div className="mt-2 flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={() => void handleSaveApiKey()}
+            disabled={!apiKey.trim()}
+            className="rounded bg-slate-900 px-4 py-2 text-white disabled:opacity-40 dark:bg-slate-100 dark:text-slate-900"
+          >
+            Salva chiave
+          </button>
+          {apiKeySaved && (
+            <button
+              type="button"
+              onClick={() => void handleClearApiKey()}
+              className="rounded border border-slate-400 px-4 py-2 dark:border-slate-600"
+            >
+              Rimuovi chiave
+            </button>
+          )}
+        </div>
+        <p className="mt-2 text-sm text-slate-500">
+          {apiKeySaved ? '✓ Una chiave è salvata su questo dispositivo.' : 'Nessuna chiave salvata: le funzioni che la richiedono restano disattivate.'}
+        </p>
+      </div>
+
+      <div>
+        <h2 className="text-lg font-semibold">Sincronizzazione</h2>
+        <p className="mt-1 max-w-prose text-slate-600 dark:text-slate-300">
           La sincronizzazione tra dispositivi avverrà tramite un Gist privato con un token
-          inserito da te.
+          inserito da te, salvato solo in locale e mai committato.
         </p>
         <p className="mt-2 inline-block rounded bg-slate-200 px-3 py-1 text-sm text-slate-700 dark:bg-slate-800 dark:text-slate-300">
-          In arrivo nelle Fasi 6 e 7
+          In arrivo nella Fase 7
         </p>
       </div>
 

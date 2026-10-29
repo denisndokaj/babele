@@ -18,6 +18,7 @@ const SESSION_SETTINGS_KEY = 'sessionSettings'
 const CONFUSION_MISTAKES_KEY = 'confusionMistakes'
 const VOICE_PREFERENCES_KEY = 'voicePreferences'
 const DICTATION_MISTAKES_KEY = 'dictationMistakes'
+const ANTHROPIC_API_KEY_KEY = 'anthropicApiKey'
 
 export type ConfusionMistakes = Record<string, number>
 export type VoicePreferences = Partial<Record<LanguageCode, string>>
@@ -89,4 +90,20 @@ export async function recordDictationMistake(key: string): Promise<number> {
   const newCount = (current[key] ?? 0) + 1
   await writeSetting(DICTATION_MISTAKES_KEY, { ...current, [key]: newCount })
   return newCount
+}
+
+/** Chiave API Anthropic (facoltativa): resta solo in IndexedDB, mai nel codice o nel repo. */
+export async function getApiKey(): Promise<string | undefined> {
+  return readSetting<string>(ANTHROPIC_API_KEY_KEY)
+}
+
+export async function setApiKey(key: string): Promise<void> {
+  await writeSetting(ANTHROPIC_API_KEY_KEY, key)
+}
+
+export async function clearApiKey(): Promise<void> {
+  const row = await db.settings.where('key').equals(ANTHROPIC_API_KEY_KEY).first()
+  if (row?.id !== undefined) {
+    await db.settings.delete(row.id)
+  }
 }

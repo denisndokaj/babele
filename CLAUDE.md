@@ -5,7 +5,7 @@ le sessioni future dal contesto giusto.
 
 ## Stato
 
-Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F5 — Pronuncia, dettato, confusioni**.
+Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F6 — LLM (diario e tutor)**.
 Non passare alla fase successiva senza via libera esplicito dell'utente.
 
 ## Stack
@@ -112,6 +112,32 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
   La guida ai suoni (`src/content/pronunciation/soundGuide.ts`) e le coppie minime
   (`minimalPairs.ts`) sono scritte a mano: non esiste un dataset aperto di questo tipo.
   Il dettato confronta posizione per posizione (`diffChars`), non per edit-distance.
+- **LLM** (`src/llm/`, `src/content/llm/prompts.ts`): verificata in Fase 6 la documentazione
+  ufficiale corrente (`https://platform.claude.com/docs/en/api/overview` e
+  `.../cli-sdks-libraries/sdks/typescript`) prima di scrivere il client. Chiamata diretta
+  dal browser (niente backend): header `x-api-key`, `anthropic-version: 2026-10-21`,
+  `content-type: application/json` e `anthropic-dangerous-direct-browser-access: true` —
+  quest'ultimo è descritto da Anthropic stesso come "dangerous" perché espone la chiave nel
+  codice client, accettabile qui solo perché è la chiave personale dell'utente, salvata e
+  usata esclusivamente sul suo dispositivo (uno dei casi che la stessa documentazione
+  individua come a basso rischio). Modello predefinito `claude-sonnet-5-5`
+  (`DEFAULT_MODEL` in `src/llm/client.ts`): buon compromesso qualità/costo per una chiave a
+  consumo personale, non il più economico né il più potente disponibile — cambiarlo lì, non
+  sparso nei chiamanti. `callClaude` (`src/llm/client.ts`) **lancia** un `LlmError` con
+  messaggio in italiano in caso di errore, a differenza di `recognition.ts`/`shadowing.ts`
+  (che risolvono silenziosamente `null`): lì il fallimento è un'alternativa muta accettabile,
+  qui l'utente ha scritto qualcosa e aspetta un esito, quindi un messaggio chiaro è meglio del
+  silenzio. Le risposte del modello sono richieste in JSON (`src/llm/schema.ts` le estrae
+  anche da blocchi \`\`\`json ed eventuale testo introduttivo) e **mai fidate ciecamente**:
+  se il parsing fallisce, l'errore arriva all'utente invece di salvare dati corrotti. Il
+  prompt di sistema del tutor e del correttore del diario sono dati versionati in
+  `src/content/llm/prompts.ts` (non inline nei componenti, come richiesto da §6.10 SPEC);
+  cambiarne il testo non richiede toccare `Scrivi.tsx`/`Conversa.tsx`. Sia "Scrivi" che
+  "Conversa" restano fruibili senza chiave (il diario funziona comunque con
+  salvataggio/autovalutazione; "Conversa" senza chiave mostra solo un messaggio che spiega
+  perché è necessaria, mai un errore). Gli errori segnalati dal modello diventano carte di
+  tipo `production` taggate `diario`/`conversazione` tramite `errorsToCards`/`saveErrorCards`
+  in `src/llm/diary.ts` (riusata da entrambe le pagine).
 
 ## Deploy
 
