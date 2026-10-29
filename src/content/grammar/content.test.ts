@@ -9,13 +9,21 @@ function sortedWords(words: string[]): string[] {
   return [...words].map((w) => w.toLowerCase()).sort()
 }
 
-describe('unità grammaticali A1', () => {
+describe('unità grammaticali', () => {
   for (const language of LANGUAGE_CODES) {
     const units = getUnitsForLanguage(language)
 
     it(`${language}: esistono le 6 unità A1 previste`, () => {
-      expect(units).toHaveLength(6)
-      expect(units.every((u) => u.cefrLevel === 'A1')).toBe(true)
+      expect(units.filter((u) => u.cefrLevel === 'A1')).toHaveLength(6)
+    })
+
+    it(`${language}: esistono le 5 unità A2 previste`, () => {
+      expect(units.filter((u) => u.cefrLevel === 'A2')).toHaveLength(5)
+    })
+
+    it(`${language}: ogni unità ha un id, un nodeId e un titolo univoci tra le unità della lingua`, () => {
+      expect(new Set(units.map((u) => u.id)).size).toBe(units.length)
+      expect(new Set(units.map((u) => u.nodeId)).size).toBe(units.length)
     })
 
     describe.each(units.map((u) => [u.id, u] as const))('%s', (_id, unit: GrammarUnitContent) => {

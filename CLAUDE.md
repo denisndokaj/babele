@@ -83,6 +83,17 @@ riconsiderare solo se l'utente lo chiede esplicitamente.
   unità (≥15 esercizi, permutazioni valide dei riordini, indici validi delle scelte
   multiple…): va tenuto verde quando si aggiunge contenuto. `src/grammar/checkAnswer.ts`
   contiene la logica di verifica delle risposte, pura e testata separatamente dalla UI.
+  **Traguardo dichiarato (ottobre 2026)**: estensione da A1 a madrelingua **fino al C1**, a
+  tappe (un livello alla volta, con verifica e resoconto tra l'una e l'altra), non C2 — a
+  quel punto la competenza è lessicale/pragmatica più che grammaticale, e un esercizio a
+  scelta multipla sul C2 ha poco senso didattico; il C2 resta coperto da Leggi/Conversa/
+  Scrivi. Stato: **A1 (6 unità/lingua) e A2 (5 unità/lingua) completi**; B1/B2/C1 ancora da
+  scrivere (titoli B1 in `UPCOMING_UNITS`). Gli argomenti NON sono forzati identici tra le
+  tre lingue: 4 argomenti condivisi per livello (scritti separatamente per lingua, stesso
+  `nodeId`) più un quinto argomento specifico dove la grammatica reale lo richiede (es. A2:
+  partitivo per il francese, verbi modali per il tedesco, ser/estar per lo spagnolo) — `nodeId`
+  non va quindi assunto condiviso tra lingue, serve solo a raggruppare le tabelle comparative
+  in `comparativeTables.ts` quando il confronto a 4 colonne è sensato.
 - **Sottotitoli e video** (`src/subtitles/`, `src/media/`): parser SRT/VTT scritti a mano
   (sono formati di file standard, non un dataset esterno). Il player video locale usa
   `<video>` nativo; YouTube passa sempre dall'IFrame API ufficiale

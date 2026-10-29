@@ -98,4 +98,46 @@ export const COMPARATIVE_TABLES: ComparativeTable[] = [
       { label: 'Con sostantivo plurale', it: 'i miei / le mie', fr: 'mes', de: 'meine', es: 'mis' },
     ],
   },
+  {
+    nodeId: 'passato-composto',
+    title: 'Il passato composto',
+    note:
+      'Lo spagnolo è l\'unica delle tre lingue a usare un solo ausiliare (haber) per qualunque ' +
+      'verbo; il tedesco mette il participio in fondo alla frase, non subito dopo l\'ausiliare.',
+    rows: [
+      { label: 'Ausiliare', it: 'essere / avere (secondo il verbo)', fr: 'être / avoir (secondo il verbo)', de: 'sein / haben (secondo il verbo)', es: 'haber (sempre, per ogni verbo)' },
+      { label: 'Esempio ("sono andato")', it: 'sono andato', fr: 'je suis allé', de: 'ich bin gegangen', es: 'he ido' },
+      { label: 'Posizione del participio', it: "subito dopo l'ausiliare", fr: "subito dopo l'ausiliare", de: 'in fondo alla frase', es: "subito dopo l'ausiliare" },
+    ],
+  },
+  {
+    nodeId: 'futuro',
+    title: 'Il futuro semplice',
+    note: 'Il tedesco è l\'unica delle tre lingue a formare il futuro con un ausiliare (werden) + infinito, non con una desinenza propria.',
+    rows: [
+      { label: 'Si forma con', it: 'infinito + desinenza propria', fr: 'infinito + desinenza propria', de: 'werden + infinito (in fondo alla frase)', es: 'infinito + desinenza propria' },
+      { label: 'Esempio ("parlerò")', it: 'parlerò', fr: 'je parlerai', de: 'ich werde sprechen', es: 'hablaré' },
+      { label: 'Regolarità delle desinenze', it: 'variano secondo la conjugazione', fr: 'variano secondo la conjugazione', de: "un'unica forma (werden) per tutti i verbi", es: 'identiche per tutte le conjugazioni' },
+    ],
+  },
+  {
+    nodeId: 'comparativi',
+    title: 'Comparativi',
+    note: 'Il tedesco attacca -er direttamente all\'aggettivo, senza una parola separata per "più".',
+    rows: [
+      { label: 'Comparativo di maggioranza', it: 'più ... di/che', fr: 'plus ... que', de: 'aggettivo + -er ... als', es: 'más ... que' },
+      { label: 'Comparativo di uguaglianza', it: 'tanto ... quanto', fr: 'aussi ... que', de: 'so ... wie', es: 'tan ... como' },
+      { label: 'Comparativo irregolare di "buono"', it: 'migliore', fr: 'meilleur', de: 'besser', es: 'mejor' },
+    ],
+  },
+  {
+    nodeId: 'pronomi-complemento',
+    title: 'Pronomi complemento',
+    note: 'Il tedesco non "attacca" il pronome al verbo: occupa il suo normale posto nella frase.',
+    rows: [
+      { label: 'Diretto, 3ª sing. m/f', it: 'lo / la', fr: 'le / la', de: 'ihn / sie (Akkusativ)', es: 'lo / la' },
+      { label: 'Indiretto, 3ª sing. m/f', it: 'gli / le', fr: 'lui / lui', de: 'ihm / ihr (Dativ)', es: 'le / le' },
+      { label: 'Posizione rispetto al verbo', it: 'prima del verbo coniugato', fr: 'prima del verbo coniugato', de: 'posto normale nella frase (non si attacca)', es: 'prima del verbo coniugato' },
+    ],
+  },
 ]

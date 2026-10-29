@@ -18,18 +18,14 @@ export function getUnit(id: string): GrammarUnitContent | undefined {
 }
 
 /**
- * Scaletta delle unità fino al B1 (§6.4 SPEC): solo titoli, nessun contenuto ancora —
- * arriveranno nelle prossime fasi di sviluppo della Grammatica.
+ * Scaletta delle unità ancora da scrivere, estensione verso il C1 (non il C2: a quel punto la
+ * competenza è più lessicale/pragmatica che grammaticale, vedi CLAUDE.md) — solo titoli, nessun
+ * contenuto ancora, arriveranno nelle prossime tappe di sviluppo della Grammatica.
  */
 export const UPCOMING_UNITS: UpcomingUnit[] = [
   { nodeId: 'preposizioni-luogo', title: 'Preposizioni di luogo', cefrLevel: 'A1' },
   { nodeId: 'interrogativi', title: 'Frasi interrogative', cefrLevel: 'A1' },
   { nodeId: 'numeri-ora', title: 'Numeri e ora', cefrLevel: 'A1' },
-  { nodeId: 'passato-composto', title: 'Il passato (perfetto composto)', cefrLevel: 'A2' },
-  { nodeId: 'futuro', title: 'Il futuro', cefrLevel: 'A2' },
-  { nodeId: 'comparativi', title: 'Comparativi e superlativi', cefrLevel: 'A2' },
-  { nodeId: 'pronomi-complemento', title: 'Pronomi complemento (lo, gli, le…)', cefrLevel: 'A2' },
-  { nodeId: 'partitivo-francese', title: 'Il partitivo francese (du, de la, des)', cefrLevel: 'A2' },
   { nodeId: 'casi-tedeschi', title: 'I casi tedeschi (accusativo, dativo)', cefrLevel: 'B1' },
   { nodeId: 'verbi-separabili', title: 'I verbi separabili tedeschi', cefrLevel: 'B1' },
   { nodeId: 'condizionale', title: 'Il condizionale', cefrLevel: 'B1' },

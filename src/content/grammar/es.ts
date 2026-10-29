@@ -277,4 +277,252 @@ export const ES_UNITS: GrammarUnitContent[] = [
       { l2: 'Son mis libros.', it: 'Sono i miei libri.' },
     ],
   },
+  {
+    id: 'es-preterito-perfecto',
+    language: 'es',
+    cefrLevel: 'A2',
+    nodeId: 'passato-composto',
+    title: 'Il passato (pretérito perfecto compuesto)',
+    noticingExamples: [
+      { l2: 'He comido una manzana.', it: 'Ho mangiato una mela.' },
+      { l2: 'Ella ha salido temprano.', it: 'È uscita presto.' },
+      { l2: 'Hemos terminado el trabajo.', it: 'Abbiamo finito il lavoro.' },
+      { l2: 'Han ido al cine.', it: 'Sono andati al cinema.' },
+      { l2: '¿Has visto esta película?', it: 'Hai visto questo film?' },
+    ],
+    contrastiveExplanation:
+      'A differenza dell\'italiano (e del francese), che distinguono "essere" e "avere" come ausiliari ' +
+      'del passato a seconda del tipo di verbo, lo spagnolo usa SEMPRE e SOLO "haber" come ausiliare, ' +
+      'per qualunque verbo, anche quelli di movimento che in italiano richiedono "essere": "è andata" ' +
+      'si dice "ha ido" (non "es ida"), "sono uscito" si dice "he salido" (non "soy salido"). Questa è ' +
+      'probabilmente la differenza più importante da interiorizzare, perché l\'istinto di un ' +
+      'italofono è cercare un equivalente di "essere". Il participio passato si forma regolarmente ' +
+      'con -ado per i verbi in -ar (hablado) e -ido per quelli in -er/-ir (comido, vivido); alcuni ' +
+      'verbi comuni hanno un participio irregolare da imparare a memoria: hacer→hecho, decir→dicho, ' +
+      'ver→visto, poner→puesto, escribir→escrito, abrir→abierto, volver→vuelto, morir→muerto. Nota ' +
+      'd\'uso: in molte varietà di spagnolo latinoamericano, per un passato recente si preferisce ' +
+      'spesso il pretérito indefinido (comí) al perfecto compuesto (he comido), mentre in Spagna il ' +
+      'perfecto compuesto è molto comune — qui ci concentriamo sulla forma, corretta ovunque.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Participio passato di 'hablar':", options: ['hablado', 'hablido', 'hablo', 'hablando'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Participio passato di 'comer':", options: ['comido', 'comado', 'come', 'comiendo'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Participio passato di 'hacer':", options: ['hecho', 'hacido', 'hacado', 'haciendo'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Participio passato di 'ver':", options: ['visto', 'veido', 'vido', 'viendo'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "Qual è l'ausiliare del pretérito perfecto, per QUALSIASI verbo?", options: ['haber, sempre', 'ser, con i verbi di movimento', 'estar, con gli stati'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "Come si dice 'è uscita' (lei)?", options: ['Ha salido.', 'Es salida.', 'Está salida.'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'multiple-choice', question: "Come si dice 'sono andati' (loro)?", options: ['Han ido.', 'Son idos.', 'Están idos.'], correctIndex: 0 } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: '___ comido una manzana.', answer: 'He' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Ella ___ salido temprano.', answer: 'ha' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: '___ terminado el trabajo.', answer: 'Hemos' } },
+      { id: 'ex11', payload: { type: 'cloze', sentence: '¿___ visto esta película?', answer: 'Has' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'ho mangiato una mela', answerL2: 'He comido una manzana.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'è uscita presto', answerL2: 'Ha salido temprano.' } },
+      { id: 'ex14', payload: { type: 'translation-it-l2', promptIt: 'abbiamo finito il lavoro', answerL2: 'Hemos terminado el trabajo.' } },
+      { id: 'ex15', payload: { type: 'translation-it-l2', promptIt: 'sono andati al cinema', answerL2: 'Han ido al cine.' } },
+      { id: 'ex16', payload: { type: 'reorder', words: ['comido', 'he', 'una', 'manzana'], answer: ['he', 'comido', 'una', 'manzana'] } },
+      { id: 'ex17', payload: { type: 'reorder', words: ['salido', 'ha', 'temprano', 'ella'], answer: ['ella', 'ha', 'salido', 'temprano'] } },
+    ],
+    keySentences: [
+      { l2: 'He comido una manzana.', it: 'Ho mangiato una mela.' },
+      { l2: 'Ella ha salido temprano.', it: 'È uscita presto.' },
+      { l2: 'Hemos terminado el trabajo.', it: 'Abbiamo finito il lavoro.' },
+      { l2: 'Han ido al cine.', it: 'Sono andati al cinema.' },
+    ],
+  },
+  {
+    id: 'es-futuro-simple',
+    language: 'es',
+    cefrLevel: 'A2',
+    nodeId: 'futuro',
+    title: 'Il futuro semplice',
+    noticingExamples: [
+      { l2: 'Hablaré contigo mañana.', it: 'Parlerò con te domani.' },
+      { l2: 'Comerás en casa.', it: 'Mangerai a casa.' },
+      { l2: 'Viviremos en Madrid.', it: 'Vivremo a Madrid.' },
+      { l2: 'Tendré tiempo.', it: 'Avrò tempo.' },
+      { l2: 'Haremos un viaje.', it: 'Faremo un viaggio.' },
+    ],
+    contrastiveExplanation:
+      'Il futuro semplice spagnolo è più regolare di quello italiano: le stesse desinenze (-é, -ás, ' +
+      '-á, -emos, -éis, -án) si attaccano DIRETTAMENTE all\'infinito intero, senza alcuna modifica, ' +
+      'per TUTTI i verbi, che siano in -ar, -er o -ir (hablar→hablaré, comer→comeré, vivir→viviré) — ' +
+      'l\'italiano invece ha desinenze diverse per le tre conjugazioni e cambia la vocale tematica dei ' +
+      'verbi in -are (parlare→parlerò). Solo una decina di verbi molto comuni hanno una radice ' +
+      'irregolare (ma le desinenze restano regolari): decir→dir-, hacer→har-, poder→podr-, ' +
+      'poner→pondr-, querer→querr-, saber→sabr-, salir→saldr-, tener→tendr-, venir→vendr-. Quindi ' +
+      '"tener" al futuro, io, è "tendré" (non "teneré").',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Futuro di 'hablar', io:", options: ['hablaré', 'hablo', 'hablaba', 'hablara'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Futuro di 'comer', tu:", options: ['comerás', 'comes', 'comías'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Futuro di 'vivir', noi:", options: ['viviremos', 'vivimos', 'vivíamos'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Futuro irregolare di 'tener', io:", options: ['tendré', 'teneré', 'tenré'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "Futuro irregolare di 'hacer', noi:", options: ['haremos', 'haceremos', 'hacimos'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: 'Le desinenze del futuro spagnolo cambiano in base alla conjugazione (-ar/-er/-ir)?', options: ['no, sono sempre le stesse', 'sì, come in italiano', 'solo per i verbi in -ir'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: '___ contigo mañana.', answer: 'Hablaré' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Comerás en ___.', answer: 'casa' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: '___ en Madrid.', answer: 'Viviremos' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: '___ tiempo.', answer: 'Tendré' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'parlerò con te domani', answerL2: 'Hablaré contigo mañana.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'mangerai a casa', answerL2: 'Comerás en casa.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'avrò tempo', answerL2: 'Tendré tiempo.' } },
+      { id: 'ex14', payload: { type: 'translation-it-l2', promptIt: 'faremo un viaggio', answerL2: 'Haremos un viaje.' } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['contigo', 'hablaré', 'mañana'], answer: ['hablaré', 'contigo', 'mañana'] } },
+      { id: 'ex16', payload: { type: 'reorder', words: ['tiempo', 'tendré'], answer: ['tendré', 'tiempo'] } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "A differenza dell'italiano, il futuro spagnolo:", options: ["usa le stesse desinenze per tutte le conjugazioni, sull'infinito intero", 'cambia desinenza secondo la conjugazione', 'si forma con un ausiliare + infinito'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Hablaré contigo mañana.', it: 'Parlerò con te domani.' },
+      { l2: 'Viviremos en Madrid.', it: 'Vivremo a Madrid.' },
+      { l2: 'Tendré tiempo.', it: 'Avrò tempo.' },
+      { l2: 'Haremos un viaje.', it: 'Faremo un viaggio.' },
+    ],
+  },
+  {
+    id: 'es-comparativos',
+    language: 'es',
+    cefrLevel: 'A2',
+    nodeId: 'comparativi',
+    title: 'Comparativos y superlativos',
+    noticingExamples: [
+      { l2: 'Juan es más alto que Pedro.', it: 'Juan è più alto di Pedro.' },
+      { l2: 'Este libro es menos caro que el otro.', it: "Questo libro è meno caro dell'altro." },
+      { l2: 'Ella es tan inteligente como él.', it: 'Lei è intelligente quanto lui.' },
+      { l2: 'Es la casa más grande del barrio.', it: 'È la casa più grande del quartiere.' },
+      { l2: 'Este pastel es mejor que el otro.', it: "Questa torta è migliore dell'altra." },
+    ],
+    contrastiveExplanation:
+      'Come il francese (e più semplicemente dell\'italiano), lo spagnolo usa sempre "que" per ' +
+      'introdurre il secondo termine di paragone (más alto que, menos caro que), senza la ' +
+      'distinzione italiana tra "di" e "che". Per l\'uguaglianza si usa "tan...como" (tan alto como = ' +
+      'tanto alto quanto/come). Il superlativo relativo si forma con l\'articolo + más/menos + ' +
+      'aggettivo (el más alto, la más cara), e per indicare il gruppo di paragone si usa "de" (la más ' +
+      'grande DE la clase = la più grande DELLA classe). Come l\'italiano (buono→migliore), "bueno" ha ' +
+      'un comparativo irregolare: "mejor" (non "más bueno"); allo stesso modo "malo"→"peor" (non "más ' +
+      'malo").',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Come si dice 'più alto di Pedro'?", options: ['más alto que Pedro', 'más alto de Pedro', 'más alto como Pedro'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Come si dice 'tanto intelligente quanto lui'?", options: ['tan inteligente como él', 'tan inteligente que él', 'más inteligente como él'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Comparativo irregolare di 'bueno':", options: ['mejor', 'más bueno', 'buenor'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Comparativo irregolare di 'malo':", options: ['peor', 'más malo', 'malor'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: 'Per indicare il gruppo di paragone nel superlativo si usa:', options: ['de', 'que', 'como'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'cloze', sentence: 'Juan es ___ alto que Pedro.', answer: 'más' } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Este libro es ___ caro que el otro.', answer: 'menos' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Es la casa ___ grande del barrio.', answer: 'más' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Este pastel es ___ que el otro.', answer: 'mejor' } },
+      { id: 'ex10', payload: { type: 'translation-it-l2', promptIt: 'più caro di Pedro', answerL2: 'más caro que Pedro' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: "meno caro dell'altro", answerL2: 'menos caro que el otro' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'la casa più grande', answerL2: 'la casa más grande' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: "migliore dell'altra", answerL2: 'mejor que la otra' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['que', 'es', 'alto', 'Juan', 'más', 'Pedro'], answer: ['Juan', 'es', 'más', 'alto', 'que', 'Pedro'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['inteligente', 'tan', 'ella', 'como', 'él', 'es'], answer: ['ella', 'es', 'tan', 'inteligente', 'como', 'él'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "Qual è il superlativo relativo di 'grande' (plurale)?", options: ['los más grandes', 'el más grande', 'la más grande'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Juan es más alto que Pedro.', it: 'Juan è più alto di Pedro.' },
+      { l2: 'Ella es tan inteligente como él.', it: 'Lei è intelligente quanto lui.' },
+      { l2: 'Es la casa más grande del barrio.', it: 'È la casa più grande del quartiere.' },
+      { l2: 'Este pastel es mejor que el otro.', it: "Questa torta è migliore dell'altra." },
+    ],
+  },
+  {
+    id: 'es-pronombres-objeto',
+    language: 'es',
+    cefrLevel: 'A2',
+    nodeId: 'pronomi-complemento',
+    title: 'Pronombres de objeto (CD/CI)',
+    noticingExamples: [
+      { l2: 'Lo veo.', it: 'Lo vedo.' },
+      { l2: 'La conozco.', it: 'La conosco.' },
+      { l2: 'Le hablo.', it: 'Gli parlo. / Le parlo.' },
+      { l2: 'Nos escriben.', it: 'Ci scrivono.' },
+      { l2: '¿Me entiendes?', it: 'Mi capisci?' },
+    ],
+    contrastiveExplanation:
+      'Come l\'italiano, lo spagnolo pone il pronome complemento prima del verbo coniugato (lo veo = ' +
+      'lo vedo), con la stessa logica. I pronomi complemento diretto (CD) sono me, te, lo/la, nos, ' +
+      'os, los/las — quasi identici all\'italiano mi, ti, lo/la, ci, vi, li/le. La differenza più ' +
+      'importante riguarda il complemento indiretto (CI): lo spagnolo usa "le" per la 3ª persona ' +
+      'singolare SIA maschile che femminile (le hablo = gli parlo O le parlo, a seconda del ' +
+      'contesto), mentre l\'italiano distingue "gli" (a lui) da "le" (a lei) — in spagnolo questa ' +
+      'distinzione di genere non esiste al complemento indiretto. Con un infinito, un gerundio o un ' +
+      'imperativo affermativo, il pronome spagnolo si attacca DOPO, formando una sola parola (quiero ' +
+      'verLO = voglio vederLO, ¡dímeLO! = dimmeLO!) — qui l\'italiano si comporta in modo molto ' +
+      'simile, quindi è un punto facile.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Lo vedo' (a él):", options: ['Lo veo.', 'Le veo.', 'Lo veo a él le.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'La conosco' (a ella):", options: ['La conozco.', 'Le conozco.', 'Lo conozco.'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "'Gli parlo' / 'Le parlo' (CI, a lui o a lei) si dicono entrambe con:", options: ['Le hablo.', 'Lo hablo. / La hablo.', 'Les hablo.'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Al CI spagnolo, 'le' distingue il genere (a lui/a lei) come in italiano?", options: ["no, 'le' serve per entrambi", 'sì, esattamente come in italiano', 'solo al plurale'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'Voglio vederlo':", options: ['Quiero verlo.', 'Quiero vero.', 'Quiero verso.'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'cloze', sentence: '___ veo.', answer: 'Lo' } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: '___ conozco.', answer: 'La' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: '___ hablo.', answer: 'Le' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Nos ___.', answer: 'escriben' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: '¿___ entiendes?', answer: 'Me' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'lo vedo', answerL2: 'Lo veo.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'la conosco', answerL2: 'La conozco.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'ci scrivono', answerL2: 'Nos escriben.' } },
+      { id: 'ex14', payload: { type: 'translation-it-l2', promptIt: 'gli parlo', answerL2: 'Le hablo.' } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['veo', 'lo'], answer: ['lo', 'veo'] } },
+      { id: 'ex16', payload: { type: 'reorder', words: ['hablo', 'le'], answer: ['le', 'hablo'] } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "A differenza dell'italiano, il pronome indiretto spagnolo 'le':", options: ["non distingue il genere di chi riceve l'azione", 'distingue sempre maschile e femminile', 'si usa solo al plurale'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Lo veo.', it: 'Lo vedo.' },
+      { l2: 'La conozco.', it: 'La conosco.' },
+      { l2: 'Nos escriben.', it: 'Ci scrivono.' },
+      { l2: '¿Me entiendes?', it: 'Mi capisci?' },
+    ],
+  },
+  {
+    id: 'es-ser-estar',
+    language: 'es',
+    cefrLevel: 'A2',
+    nodeId: 'ser-estar-spagnolo',
+    title: 'Ser vs Estar',
+    noticingExamples: [
+      { l2: 'Soy italiano.', it: 'Sono italiano.' },
+      { l2: 'Estoy cansado.', it: 'Sono stanco.' },
+      { l2: 'Madrid está en España.', it: 'Madrid è in Spagna.' },
+      { l2: 'Son las tres.', it: 'Sono le tre.' },
+      { l2: 'Está lloviendo.', it: 'Sta piovendo.' },
+    ],
+    contrastiveExplanation:
+      'L\'italiano ha un solo verbo, "essere", per tutto ciò che in spagnolo si divide tra "ser" e ' +
+      '"estar" — questa è probabilmente LA differenza più nota e insidiosa tra le due lingue. "Ser" ' +
+      'si usa per l\'identità permanente o essenziale: nazionalità, professione, caratteristiche di ' +
+      'base, relazioni, ora/data (soy italiano, es médico, es alto, son las tres). "Estar" si usa per ' +
+      'stati temporanei, posizione nello spazio, emozioni del momento, e per formare il progressivo ' +
+      '(estoy cansado, está en Madrid, está lloviendo, estoy comiendo). Alcuni aggettivi cambiano ' +
+      'addirittura significato secondo il verbo usato: "ser aburrido" significa "essere una persona ' +
+      'noiosa" (caratteristica), mentre "estar aburrido" significa "essere annoiato in questo ' +
+      'momento" (stato); "ser listo" significa "essere intelligente", mentre "estar listo" significa ' +
+      '"essere pronto". Non c\'è una regola meccanica al 100%, ma un buon criterio di partenza è: ser ' +
+      '= cosa sei per natura, estar = come sei/dove sei in questo momento.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Sono italiano' (nazionalità, permanente):", options: ['Soy italiano.', 'Estoy italiano.', 'Soy estar italiano.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'Sono stanco' (stato temporaneo):", options: ['Estoy cansado.', 'Soy cansado.', 'Estoy ser cansado.'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "'Madrid è in Spagna' (posizione):", options: ['Madrid está en España.', 'Madrid es en España.', 'Madrid son en España.'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "'Sono le tre' (ora):", options: ['Son las tres.', 'Están las tres.', 'Es las tres.'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'Sta piovendo' (azione in corso):", options: ['Está lloviendo.', 'Es lloviendo.', 'Son lloviendo.'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'Ser aburrido' significa:", options: ['essere una persona noiosa (caratteristica)', 'essere annoiato in questo momento', 'essere pronto'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'multiple-choice', question: "'Estar listo' significa:", options: ['essere pronto', 'essere intelligente', 'essere stanco'], correctIndex: 0 } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: '___ italiano.', answer: 'Soy' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: '___ cansado.', answer: 'Estoy' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'Madrid ___ en España.', answer: 'está' } },
+      { id: 'ex11', payload: { type: 'cloze', sentence: '___ las tres.', answer: 'Son' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'sono stanco', answerL2: 'Estoy cansado.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'sono italiano', answerL2: 'Soy italiano.' } },
+      { id: 'ex14', payload: { type: 'translation-it-l2', promptIt: 'è in Spagna', answerL2: 'Está en España.' } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['italiano', 'soy'], answer: ['soy', 'italiano'] } },
+      { id: 'ex16', payload: { type: 'reorder', words: ['cansado', 'estoy'], answer: ['estoy', 'cansado'] } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Qual è il criterio di partenza più utile per scegliere tra ser/estar?', options: ['ser = cosa sei per natura, estar = come sei/dove sei ora', 'sono intercambiabili', 'ser si usa solo al plurale'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Soy italiano.', it: 'Sono italiano.' },
+      { l2: 'Estoy cansado.', it: 'Sono stanco.' },
+      { l2: 'Madrid está en España.', it: 'Madrid è in Spagna.' },
+      { l2: 'Está lloviendo.', it: 'Sta piovendo.' },
+    ],
+  },
 ]
