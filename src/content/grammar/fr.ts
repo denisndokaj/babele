@@ -632,4 +632,102 @@ export const FR_UNITS: GrammarUnitContent[] = [
       { l2: "Je pense qu'il vient.", it: 'Penso che venga.' },
     ],
   },
+  {
+    id: 'fr-pronoms-relatifs',
+    language: 'fr',
+    cefrLevel: 'B2',
+    nodeId: 'pronomi-relativi-francesi',
+    title: 'Les pronoms relatifs (qui, que, dont, où)',
+    noticingExamples: [
+      { l2: 'La femme qui parle est ma sœur.', it: 'La donna che parla è mia sorella.' },
+      { l2: 'Le livre que je lis est intéressant.', it: 'Il libro che leggo è interessante.' },
+      { l2: 'C\'est le livre dont je parle.', it: 'È il libro di cui parlo.' },
+      { l2: "La maison où j'habite est grande.", it: 'La casa dove abito è grande.' },
+      { l2: 'Le jour où je suis né...', it: 'Il giorno in cui sono nato...' },
+    ],
+    contrastiveExplanation:
+      'L\'italiano usa "che" sia per il soggetto (la donna CHE parla) sia per l\'oggetto (il libro ' +
+      'CHE leggo) della proposizione relativa, senza distinguerli. Il francese invece distingue ' +
+      'sempre: "qui" quando il pronome relativo è il SOGGETTO della frase relativa, "que" quando è ' +
+      'l\'OGGETTO diretto. La vera difficoltà è "dont": sostituisce un complemento introdotto da "de" ' +
+      '(parler DE quelque chose → la chose DONT on parle) e corrisponde, secondo il contesto, a "di ' +
+      'cui", "del quale" o "la cui" — un solo pronome francese per diverse costruzioni italiane, ' +
+      'perché "dont" porta in sé sia il significato di "di" sia quello del pronome relativo. "Où" ' +
+      'infine si usa non solo per il luogo fisico (la maison où j\'habite) ma anche per il tempo (le ' +
+      'jour où je suis né = il giorno IN CUI sono nato) — un uso più ampio di "dove" in italiano.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: 'La donna CHE parla (soggetto):', options: ['La femme qui parle.', 'La femme que parle.', 'La femme dont parle.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: 'Il libro CHE leggo (oggetto):', options: ['Le livre que je lis.', 'Le livre qui je lis.', 'Le livre dont je lis.'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "'dont' sostituisce un complemento introdotto da:", options: ["'de'", "'à'", 'niente, è un soggetto'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "'C'est le livre dont je parle' significa:", options: ['è il libro di cui parlo', 'è il libro che parlo', 'è il libro dove parlo'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'Le jour où je suis né' significa:", options: ['il giorno in cui sono nato', 'il giorno dove sono nato', 'il giorno che sono nato'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'qui' si usa quando il pronome relativo è:", options: ['il soggetto della relativa', "l'oggetto diretto", "introdotto da 'de'"], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'La femme ___ parle est ma sœur.', answer: 'qui' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Le livre ___ je lis est intéressant.', answer: 'que' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'C\'est le livre ___ je parle.', answer: 'dont' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: "La maison ___ j'habite est grande.", answer: 'où' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'la donna che parla', answerL2: 'la femme qui parle' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'il libro che leggo', answerL2: 'le livre que je lis' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'il libro di cui parlo', answerL2: 'le livre dont je parle' } },
+      { id: 'ex14', payload: { type: 'translation-it-l2', promptIt: 'la casa dove abito', answerL2: "la maison où j'habite" } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['qui', 'la', 'parle', 'femme'], answer: ['la', 'femme', 'qui', 'parle'] } },
+      { id: 'ex16', payload: { type: 'reorder', words: ['je', 'que', 'lis', 'livre', 'le'], answer: ['le', 'livre', 'que', 'je', 'lis'] } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'A differenza dell\'italiano, il francese distingue sempre:', options: ["'qui' (soggetto) da 'que' (oggetto)", 'maschile e femminile nel pronome relativo', 'singolare e plurale nel pronome relativo'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'La femme qui parle est ma sœur.', it: 'La donna che parla è mia sorella.' },
+      { l2: 'Le livre que je lis est intéressant.', it: 'Il libro che leggo è interessante.' },
+      { l2: "C'est le livre dont je parle.", it: 'È il libro di cui parlo.' },
+      { l2: "La maison où j'habite est grande.", it: 'La casa dove abito è grande.' },
+    ],
+  },
+  {
+    id: 'fr-discours-indirect',
+    language: 'fr',
+    cefrLevel: 'B2',
+    nodeId: 'discorso-indiretto-francese',
+    title: 'Le discours indirect',
+    noticingExamples: [
+      { l2: "Il a dit qu'il était fatigué.", it: 'Ha detto che era stanco.' },
+      { l2: "Elle a dit qu'elle viendrait le lendemain.", it: 'Ha detto che sarebbe venuta il giorno dopo.' },
+      { l2: "Il a demandé où j'allais.", it: 'Ha chiesto dove andassi.' },
+      { l2: "Elle a dit qu'elle avait fini.", it: 'Ha detto che aveva finito.' },
+      { l2: "Il m'a dit qu'il m'aiderait.", it: 'Mi ha detto che mi avrebbe aiutato.' },
+    ],
+    contrastiveExplanation:
+      'Come l\'italiano, il francese richiede uno spostamento dei tempi verbali (concordance des ' +
+      'temps) quando si riporta un discorso al passato: il presente del discorso diretto diventa ' +
+      'imperfetto ("je suis" → qu\'il était), il futuro diventa condizionale ("je viendrai" → ' +
+      'qu\'elle viendrait), il passato composto diventa trapassato ("j\'ai fini" → qu\'elle avait ' +
+      'fini) — esattamente la stessa logica di spostamento dell\'italiano (presente→imperfetto, ' +
+      'futuro→condizionale passato). Cambiano invece, come in italiano, le espressioni di tempo ' +
+      'legate al momento dell\'enunciazione: "aujourd\'hui" (oggi) diventa "ce jour-là" (quel ' +
+      'giorno), "demain" (domani) diventa "le lendemain" (il giorno dopo), "hier" (ieri) diventa "la ' +
+      'veille" (il giorno prima) — il parallelo con l\'italiano regge bene su questo punto.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Discorso diretto 'je suis fatigué' al passato diventa:", options: ["qu'il était fatigué", "qu'il est fatigué", "qu'il sera fatigué"], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Discorso diretto 'je viendrai demain' al passato diventa:", options: ["qu'elle viendrait le lendemain", "qu'elle vient demain", "qu'elle venait demain"], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Discorso diretto 'j'ai fini' al passato diventa:", options: ["qu'elle avait fini", "qu'elle a fini", "qu'elle finissait"], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "'aujourd'hui' nel discorso indiretto al passato diventa:", options: ['ce jour-là', 'demain', 'hier'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'demain' nel discorso indiretto al passato diventa:", options: ['le lendemain', "aujourd'hui", 'la veille'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: 'Il presente del discorso diretto, riportato al passato, diventa:', options: ["l'imperfetto", 'il futuro', 'il condizionale'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: "Il a dit qu'il ___ fatigué.", answer: 'était' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: "Elle a dit qu'elle ___ le lendemain.", answer: 'viendrait' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: "Elle a dit qu'elle ___ fini.", answer: 'avait' } },
+      { id: 'ex10', payload: { type: 'translation-it-l2', promptIt: 'ha detto che era stanco', answerL2: "Il a dit qu'il était fatigué." } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'ha detto che sarebbe venuta il giorno dopo', answerL2: "Elle a dit qu'elle viendrait le lendemain." } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'ha detto che aveva finito', answerL2: "Elle a dit qu'elle avait fini." } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'mi ha detto che mi avrebbe aiutato', answerL2: "Il m'a dit qu'il m'aiderait." } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['dit', 'il', 'fatigué', "qu'il", 'a', 'était'], answer: ['il', 'a', 'dit', "qu'il", 'était', 'fatigué'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['demandé', 'il', 'allais', 'a', 'où', "j'"], answer: ['il', 'a', 'demandé', 'où', "j'", 'allais'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: 'Il futuro del discorso diretto, riportato al passato, diventa:', options: ['il condizionale', "l'imperfetto", 'resta futuro'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "Rispetto all'italiano, lo spostamento dei tempi nel discorso indiretto francese è:", options: ['molto simile, stessa logica di fondo', 'completamente diverso', 'assente in francese'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: "Il a dit qu'il était fatigué.", it: 'Ha detto che era stanco.' },
+      { l2: "Elle a dit qu'elle viendrait le lendemain.", it: 'Ha detto che sarebbe venuta il giorno dopo.' },
+      { l2: "Elle a dit qu'elle avait fini.", it: 'Ha detto che aveva finito.' },
+      { l2: "Il m'a dit qu'il m'aiderait.", it: 'Mi ha detto che mi avrebbe aiutato.' },
+    ],
+  },
 ]

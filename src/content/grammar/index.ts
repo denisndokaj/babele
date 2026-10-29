@@ -20,19 +20,15 @@ export function getUnit(id: string): GrammarUnitContent | undefined {
 /**
  * Scaletta delle unità ancora da scrivere, estensione verso il C1 (non il C2: a quel punto la
  * competenza è più lessicale/pragmatica che grammaticale, vedi CLAUDE.md) — solo titoli, nessun
- * contenuto ancora, arriveranno nelle prossime tappe di sviluppo della Grammatica. Al B2 non ci
- * sono argomenti condivisi tra le tre lingue altrettanto netti quanto ad A2/B1: la scaletta è
- * quindi tutta di argomenti specifici per lingua (due a testa). Il C1 resta da definire nel
- * dettaglio quando si arriverà a quella tappa.
+ * contenuto ancora, arriveranno nella prossima tappa di sviluppo della Grammatica. Come al B2,
+ * al C1 non ci sono argomenti condivisi tra le tre lingue altrettanto netti quanto ad A2/B1.
  */
 export const UPCOMING_UNITS: UpcomingUnit[] = [
   { nodeId: 'preposizioni-luogo', title: 'Preposizioni di luogo', cefrLevel: 'A1' },
   { nodeId: 'interrogativi', title: 'Frasi interrogative', cefrLevel: 'A1' },
   { nodeId: 'numeri-ora', title: 'Numeri e ora', cefrLevel: 'A1' },
-  { nodeId: 'pronomi-relativi-francesi', title: 'Les pronoms relatifs (qui, que, dont, où)', cefrLevel: 'B2' },
-  { nodeId: 'discorso-indiretto-francese', title: 'Le discours indirect', cefrLevel: 'B2' },
-  { nodeId: 'passivo-tedesco', title: 'Das Passiv', cefrLevel: 'B2' },
-  { nodeId: 'subordinate-tedesche', title: "L'ordine delle subordinate tedesche (Nebensätze)", cefrLevel: 'B2' },
-  { nodeId: 'por-para-spagnolo', title: 'Por vs Para', cefrLevel: 'B2' },
-  { nodeId: 'imperfecto-indefinido', title: 'Imperfecto vs Indefinido', cefrLevel: 'B2' },
+  { nodeId: 'subjonctif-passe-francese', title: 'Le subjonctif passé et la concordance des temps', cefrLevel: 'C1' },
+  { nodeId: 'konjunktiv-vergangenheit-tedesco', title: 'Der Konjunktiv II der Vergangenheit (hätte/wäre + Partizip II)', cefrLevel: 'C1' },
+  { nodeId: 'nominalisierung-tedesco', title: 'Die Nominalisierung (il registro nominale/accademico)', cefrLevel: 'C1' },
+  { nodeId: 'subjuntivo-pasado-spagnolo', title: 'El pluscuamperfecto de subjuntivo e il periodo hipotético', cefrLevel: 'C1' },
 ]

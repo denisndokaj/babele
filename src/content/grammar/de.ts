@@ -732,4 +732,103 @@ export const DE_UNITS: GrammarUnitContent[] = [
       { l2: 'Ich glaube, dass er kommt.', it: 'Penso che venga.' },
     ],
   },
+  {
+    id: 'de-passiv',
+    language: 'de',
+    cefrLevel: 'B2',
+    nodeId: 'passivo-tedesco',
+    title: 'Das Passiv',
+    noticingExamples: [
+      { l2: 'Das Haus wird gebaut.', it: 'La casa viene costruita.' },
+      { l2: 'Der Brief wurde geschrieben.', it: 'La lettera è stata scritta.' },
+      { l2: 'Das Haus ist von dem Architekten gebaut worden.', it: "La casa è stata costruita dall'architetto." },
+      { l2: 'Das Fenster wurde durch den Sturm zerstört.', it: 'La finestra è stata distrutta dalla tempesta.' },
+      { l2: 'Hier wird nicht geraucht.', it: 'Qui non si fuma.' },
+    ],
+    contrastiveExplanation:
+      'Come l\'italiano forma il passivo con "essere" + participio passato, il tedesco lo forma con ' +
+      '"werden" + Partizip II: "das Haus WIRD gebaut" (la casa VIENE costruita) — stessa logica, ' +
+      '"werden" funziona come l\'italiano "venire" nel passivo. Una particolarità da notare: nel ' +
+      'Perfekt del passivo, "werden" usa come participio passato la forma speciale "worden" (non ' +
+      '"geworden", che si usa nel significato normale di "werden" = diventare): "das Haus IST... ' +
+      'gebaut WORDEN" (la casa è stata costruita). Per introdurre chi compie l\'azione, il tedesco ' +
+      'distingue: "von" + Dativ per le persone ("von dem Architekten" = dall\'architetto), "durch" + ' +
+      'Akkusativ per cause impersonali o mezzi ("durch den Sturm" = dalla tempesta) — una ' +
+      'distinzione che l\'italiano non fa (usa sempre "da" in entrambi i casi).',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'La casa viene costruita' in tedesco:", options: ['Das Haus wird gebaut.', 'Das Haus ist gebaut.', 'Das Haus hat gebaut.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: 'Il passivo tedesco si forma con:', options: ['werden + Partizip II', 'sein + Partizip II', 'haben + Partizip II'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Nel Perfekt del passivo, il participio di 'werden' è:", options: ['worden', 'geworden', 'gewest'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: 'Per introdurre una persona che compie l\'azione si usa:', options: ['von + Dativ', 'durch + Akkusativ', 'mit + Dativ'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: 'Per introdurre una causa impersonale (es. una tempesta) si usa:', options: ['durch + Akkusativ', 'von + Dativ', 'bei + Dativ'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'Hier wird nicht geraucht' significa:", options: ['qui non si fuma (passivo impersonale)', 'qui non fumo', 'qui non è fumato'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Das Haus ___ gebaut.', answer: 'wird' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Der Brief ___ geschrieben.', answer: 'wurde' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Das Fenster wurde ___ den Sturm zerstört.', answer: 'durch' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'Das Haus ist von dem Architekten gebaut ___.', answer: 'worden' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'la casa viene costruita', answerL2: 'Das Haus wird gebaut.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'la lettera è stata scritta', answerL2: 'Der Brief wurde geschrieben.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'la finestra è stata distrutta dalla tempesta', answerL2: 'Das Fenster wurde durch den Sturm zerstört.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['wird', 'das', 'gebaut', 'haus'], answer: ['das', 'haus', 'wird', 'gebaut'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['wurde', 'geschrieben', 'der', 'brief'], answer: ['der', 'brief', 'wurde', 'geschrieben'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "'Werden' nel passivo tedesco funziona come l'italiano:", options: ["'venire' (la casa viene costruita)", 'avere', 'potere'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "A differenza dell'italiano, per l'agente il tedesco distingue:", options: ['persone (von) da cause impersonali (durch)', 'maschile da femminile', 'singolare da plurale'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Das Haus wird gebaut.', it: 'La casa viene costruita.' },
+      { l2: 'Der Brief wurde geschrieben.', it: 'La lettera è stata scritta.' },
+      { l2: 'Das Fenster wurde durch den Sturm zerstört.', it: 'La finestra è stata distrutta dalla tempesta.' },
+      { l2: 'Hier wird nicht geraucht.', it: 'Qui non si fuma.' },
+    ],
+  },
+  {
+    id: 'de-nebensaetze',
+    language: 'de',
+    cefrLevel: 'B2',
+    nodeId: 'subordinate-tedesche',
+    title: 'Die Nebensätze (ordine delle subordinate)',
+    noticingExamples: [
+      { l2: 'Ich bleibe zu Hause, weil ich krank bin.', it: 'Resto a casa perché sono malato.' },
+      { l2: 'Ich weiß, dass er kommt.', it: 'So che viene.' },
+      { l2: 'Wenn es regnet, bleibe ich zu Hause.', it: 'Se piove, resto a casa.' },
+      { l2: 'Obwohl er müde ist, arbeitet er weiter.', it: 'Anche se è stanco, continua a lavorare.' },
+      { l2: 'Ich weiß nicht, ob sie kommt.', it: 'Non so se viene.' },
+    ],
+    contrastiveExplanation:
+      'Nella frase principale tedesca, il verbo coniugato sta in 2ª posizione. Ma in una ' +
+      'proposizione SUBORDINATA, introdotta da una congiunzione come "weil" (perché), "dass" (che), ' +
+      '"wenn" (se/quando), "obwohl" (anche se), "ob" (se, interrogativo indiretto), il verbo ' +
+      'coniugato si sposta SEMPRE alla fine della proposizione: "ich bleibe zu Hause, weil ich krank ' +
+      'BIN" (lett. "resto a casa, perché io malato SONO") — l\'italiano mantiene invece l\'ordine ' +
+      'soggetto-verbo normale anche nella subordinata ("perché sono malato"). Questa è la stessa ' +
+      'logica del "verbo in fondo" già vista nel Perfekt, nel Futur e con i modali, ma qui si ' +
+      'applica al verbo principale della frase, non solo a un participio o un infinito. Un dettaglio ' +
+      'collegato ai verbi separabili: nella subordinata, prefisso e verbo si ricongiungono in ' +
+      'un\'unica parola alla fine ("..., weil ich früh AUFSTEHE", non staccato).',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Resto a casa perché sono malato':", options: ['Ich bleibe zu Hause, weil ich krank bin.', 'Ich bleibe zu Hause, weil bin ich krank.', 'Ich bleibe zu Hause, weil ich bin krank.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "In una subordinata con 'weil', il verbo coniugato va:", options: ['alla fine della proposizione', 'in 2ª posizione, come nella principale', "all'inizio della proposizione"], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "'Ich weiß, dass er kommt' — dove si trova 'kommt'?", options: ['alla fine della subordinata', 'subito dopo "dass"', 'al posto di "weiß"'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: 'Con un verbo separabile in una subordinata (es. aufstehen):', options: ["prefisso e verbo si ricongiungono in un'unica parola alla fine", 'il prefisso resta comunque staccato', 'il prefisso scompare'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "Quale congiunzione introduce un'interrogativa indiretta ('se')?", options: ['ob', 'dass', 'weil'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'cloze', sentence: 'Ich bleibe zu Hause, weil ich krank ___.', answer: 'bin' } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Ich weiß, dass er ___.', answer: 'kommt' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Wenn es ___, bleibe ich zu Hause.', answer: 'regnet' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Ich weiß nicht, ob sie ___.', answer: 'kommt' } },
+      { id: 'ex10', payload: { type: 'translation-it-l2', promptIt: 'resto a casa perché sono malato', answerL2: 'Ich bleibe zu Hause, weil ich krank bin.' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'so che viene', answerL2: 'Ich weiß, dass er kommt.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'se piove, resto a casa', answerL2: 'Wenn es regnet, bleibe ich zu Hause.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'non so se viene', answerL2: 'Ich weiß nicht, ob sie kommt.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['weil', 'bin', 'ich', 'krank'], answer: ['weil', 'ich', 'krank', 'bin'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['dass', 'kommt', 'er'], answer: ['dass', 'er', 'kommt'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: 'A differenza dell\'italiano, nella subordinata tedesca il verbo coniugato:', options: ['va sempre alla fine della proposizione', 'resta sempre dopo il soggetto, come in italiano', 'va sempre al primo posto'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Questa regola è collegata a quale altra struttura tedesca già vista?', options: ['la "parentesi verbale" di Perfekt, Futur e modali', 'il sistema dei casi', 'il comparativo'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Ich bleibe zu Hause, weil ich krank bin.', it: 'Resto a casa perché sono malato.' },
+      { l2: 'Ich weiß, dass er kommt.', it: 'So che viene.' },
+      { l2: 'Wenn es regnet, bleibe ich zu Hause.', it: 'Se piove, resto a casa.' },
+      { l2: 'Ich weiß nicht, ob sie kommt.', it: 'Non so se viene.' },
+    ],
+  },
 ]

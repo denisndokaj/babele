@@ -625,4 +625,104 @@ export const ES_UNITS: GrammarUnitContent[] = [
       { l2: 'No creo que venga.', it: 'Non penso che venga.' },
     ],
   },
+  {
+    id: 'es-por-para',
+    language: 'es',
+    cefrLevel: 'B2',
+    nodeId: 'por-para-spagnolo',
+    title: 'Por vs Para',
+    noticingExamples: [
+      { l2: 'Gracias por tu ayuda.', it: 'Grazie per il tuo aiuto.' },
+      { l2: 'Esto es para ti.', it: 'Questo è per te.' },
+      { l2: 'Camino por la calle.', it: 'Cammino per la strada.' },
+      { l2: 'Necesito esto para el lunes.', it: 'Mi serve questo per lunedì.' },
+      { l2: 'Lo hice por amor.', it: "L'ho fatto per amore." },
+    ],
+    contrastiveExplanation:
+      'L\'italiano usa "per" per moltissimi significati diversi che lo spagnolo distingue nettamente ' +
+      'tra "por" e "para" — esattamente come con ser/estar, un\'unica parola italiana si divide in ' +
+      'due parole spagnole con una logica diversa. "Por" guarda all\'indietro: la CAUSA o il MOTIVO ' +
+      'di qualcosa (gracias POR tu ayuda = grazie per causa del tuo aiuto), il mezzo (por correo = ' +
+      'per posta), il movimento ATTRAVERSO un luogo (por la calle), una durata approssimativa (por ' +
+      'la mañana). "Para" guarda avanti: lo SCOPO o l\'OBIETTIVO (esto es para aprender = questo è ' +
+      'per imparare), il DESTINATARIO (esto es para ti), una SCADENZA o destinazione nel tempo (para ' +
+      'el lunes = per lunedì, entro lunedì). Un buon criterio di partenza: "por" = a causa di/' +
+      'attraverso (guarda al passato/motivo), "para" = per ottenere/verso (guarda al futuro/scopo).',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Grazie per il tuo aiuto' (causa):", options: ['Gracias por tu ayuda.', 'Gracias para tu ayuda.', 'Gracias de tu ayuda.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'Questo è per te' (destinatario):", options: ['Esto es para ti.', 'Esto es por ti.', 'Esto es a ti.'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "'Cammino per la strada' (moto attraverso):", options: ['Camino por la calle.', 'Camino para la calle.', 'Camino en la calle.'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "'Mi serve questo per lunedì' (scadenza):", options: ['Necesito esto para el lunes.', 'Necesito esto por el lunes.', 'Necesito esto en el lunes.'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: 'Quale criterio distingue meglio por da para?', options: ["'por' = causa/attraverso (guarda al passato), 'para' = scopo/verso (guarda al futuro)", 'sono intercambiabili', 'por si usa solo con persone'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'Lo hice por amor' significa:", options: ["l'ho fatto per amore (causa/motivo)", "l'ho fatto per l'amore (destinatario)", "l'ho fatto fino all'amore"], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Gracias ___ tu ayuda.', answer: 'por' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Esto es ___ ti.', answer: 'para' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Camino ___ la calle.', answer: 'por' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'Necesito esto ___ el lunes.', answer: 'para' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'grazie per il tuo aiuto', answerL2: 'Gracias por tu ayuda.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'questo è per te', answerL2: 'Esto es para ti.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'mi serve questo per lunedì', answerL2: 'Necesito esto para el lunes.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['por', 'gracias', 'ayuda', 'tu'], answer: ['gracias', 'por', 'tu', 'ayuda'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['es', 'esto', 'para', 'ti'], answer: ['esto', 'es', 'para', 'ti'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "A differenza dell'italiano 'per', lo spagnolo:", options: ['distingue sempre causa/mezzo (por) da scopo/destinatario (para)', 'usa sempre e solo por', 'usa sempre e solo para'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Questa distinzione è concettualmente simile a quale altra coppia spagnola già vista?', options: ['ser vs estar', 'indicativo vs subjuntivo', 'futuro vs condicional'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Gracias por tu ayuda.', it: 'Grazie per il tuo aiuto.' },
+      { l2: 'Esto es para ti.', it: 'Questo è per te.' },
+      { l2: 'Camino por la calle.', it: 'Cammino per la strada.' },
+      { l2: 'Necesito esto para el lunes.', it: 'Mi serve questo per lunedì.' },
+    ],
+  },
+  {
+    id: 'es-imperfecto-indefinido',
+    language: 'es',
+    cefrLevel: 'B2',
+    nodeId: 'imperfecto-indefinido',
+    title: 'Imperfecto vs Indefinido',
+    noticingExamples: [
+      { l2: 'Cuando era niño, vivía en Madrid.', it: 'Quando ero piccolo, vivevo a Madrid.' },
+      { l2: 'Ayer fui al cine.', it: 'Ieri sono andato al cinema.' },
+      { l2: 'Hacía sol cuando salí de casa.', it: 'Faceva sole quando sono uscito di casa.' },
+      { l2: 'Todos los días caminaba al colegio.', it: 'Tutti i giorni camminavo verso la scuola.' },
+      { l2: 'De repente, oí un ruido.', it: 'Improvvisamente, sentii un rumore.' },
+    ],
+    contrastiveExplanation:
+      'Questa distinzione è, per un italiano, una delle più facili del B2, perché l\'italiano ha ' +
+      'ESATTAMENTE la stessa logica aspettuale: il pretérito imperfecto spagnolo corrisponde ' +
+      'all\'imperfetto italiano (descrizioni, abitudini, azioni in corso sullo sfondo: "vivía en ' +
+      'Madrid" = "vivevo a Madrid"), il pretérito indefinido corrisponde al passato prossimo/remoto ' +
+      'italiano (azioni puntuali, compiute, con un inizio e una fine chiari: "fui al cine" = "sono ' +
+      'andato al cinema"). Il modello classico è: l\'imperfecto descrive lo SFONDO, l\'indefinido ' +
+      'racconta l\'AZIONE PUNTUALE che accade in quello sfondo — "HACÍA sol [sfondo] cuando SALÍ de ' +
+      'casa [azione]" (faceva sole quando sono uscito). A livello di forma, l\'indefinido ha molti ' +
+      'verbi irregolari da imparare a memoria (fui, hice, dije, tuve, estuve, pude, puse, quise, ' +
+      'vine), mentre l\'imperfecto è quasi sempre regolare (-aba per i verbi in -ar, -ía per -er/' +
+      '-ir).',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Quando ero piccolo, vivevo a Madrid' (descrizione/abitudine):", options: ['Cuando era niño, vivía en Madrid.', 'Cuando fui niño, viví en Madrid.', 'Cuando era niño, viví en Madrid.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'Ieri sono andato al cinema' (azione puntuale):", options: ['Ayer fui al cine.', 'Ayer iba al cine.', 'Ayer era al cine.'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Indefinido di 'ser', io:", options: ['fui', 'era', 'seré'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Indefinido di 'hacer', io:", options: ['hice', 'hacía', 'haré'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "L'imperfecto si usa per:", options: ['descrizioni, abitudini, azioni sullo sfondo', 'azioni puntuali e compiute', 'il futuro'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "L'indefinido si usa per:", options: ['azioni puntuali, compiute, con inizio e fine chiari', 'descrizioni e abitudini', 'azioni abituali'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Cuando era niño, ___ en Madrid.', answer: 'vivía' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Ayer ___ al cine.', answer: 'fui' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: '___ sol cuando salí de casa.', answer: 'Hacía' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'De repente, ___ un ruido.', answer: 'oí' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'quando ero piccolo, vivevo a Madrid', answerL2: 'Cuando era niño, vivía en Madrid.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'ieri sono andato al cinema', answerL2: 'Ayer fui al cine.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'tutti i giorni camminavo verso la scuola', answerL2: 'Todos los días caminaba al colegio.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['niño', 'era', 'cuando', 'vivía', 'en', 'madrid'], answer: ['cuando', 'era', 'niño', 'vivía', 'en', 'madrid'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['fui', 'ayer', 'cine', 'al'], answer: ['ayer', 'fui', 'al', 'cine'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "Rispetto all'italiano, la distinzione imperfecto/indefinido è:", options: ["molto simile all'imperfetto/passato prossimo italiano, uno dei punti più facili del B2", "completamente diversa dall'italiano", 'assente in spagnolo'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "Nel modello 'sfondo + azione puntuale', quale tempo descrive lo sfondo?", options: ['imperfecto', 'indefinido', 'futuro'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Cuando era niño, vivía en Madrid.', it: 'Quando ero piccolo, vivevo a Madrid.' },
+      { l2: 'Ayer fui al cine.', it: 'Ieri sono andato al cinema.' },
+      { l2: 'Hacía sol cuando salí de casa.', it: 'Faceva sole quando sono uscito di casa.' },
+      { l2: 'De repente, oí un ruido.', it: 'Improvvisamente, sentii un rumore.' },
+    ],
+  },
 ]
