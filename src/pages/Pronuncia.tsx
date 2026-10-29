@@ -13,6 +13,7 @@ import {
   recordDictationMistake,
   setVoicePreference,
 } from '../settings/settings'
+import { useActivityTimer } from '../stats/activityTimer'
 import type { LanguageCode } from '../types/models'
 
 type Tab = 'pronuncia' | 'dettato'
@@ -67,6 +68,7 @@ export function Pronuncia() {
 }
 
 function PronunciaTab({ language }: { language: LanguageCode }) {
+  useActivityTimer(language, 'output')
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
   const [selectedVoice, setSelectedVoice] = useState<string | undefined>(undefined)
   const [practiceWord, setPracticeWord] = useState<string | null>(null)
@@ -211,6 +213,7 @@ function PronunciaTab({ language }: { language: LanguageCode }) {
 }
 
 function DettatoTab({ language }: { language: LanguageCode }) {
+  useActivityTimer(language, 'input')
   const [sentence, setSentence] = useState<string | null>(null)
   const [typed, setTyped] = useState('')
   const [checked, setChecked] = useState(false)

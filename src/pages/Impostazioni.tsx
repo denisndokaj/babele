@@ -1,17 +1,25 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { downloadBackup, importBackup } from '../db/backup'
+import { downloadBackup, exportBackupText, importBackup, importBackupText } from '../db/backup'
 import { LANGUAGES } from '../languages'
 import {
   clearApiKey,
+  clearGistToken,
   getApiKey,
+  getGistId,
+  getGistLastSyncAt,
+  getGistToken,
   getOnboardingProfile,
   getSessionSettings,
   saveSessionSettings,
   setApiKey,
+  setGistId,
+  setGistLastSyncAt,
+  setGistToken,
   type OnboardingProfile,
   type SessionSettings,
 } from '../settings/settings'
+import { GistError, pullBackupFromGist, pushBackupToGist } from '../sync/gist'
 
 export function Impostazioni() {
   const [message, setMessage] = useState<string | null>(null)
@@ -22,14 +30,33 @@ export function Impostazioni() {
   const [apiKeySaved, setApiKeySaved] = useState(false)
   const [showApiKey, setShowApiKey] = useState(false)
   const savingKeyRef = useRef(false)
+  const [gistToken, setGistTokenState] = useState('')
+  const [gistTokenSaved, setGistTokenSaved] = useState(false)
+  const [showGistToken, setShowGistToken] = useState(false)
+  const [gistId, setGistIdState] = useState('')
+  const [gistLastSync, setGistLastSync] = useState<string | undefined>(undefined)
+  const [gistMessage, setGistMessage] = useState<string | null>(null)
+  const [gistBusy, setGistBusy] = useState(false)
+  const savingGistTokenRef = useRef(false)
+  const syncingGistRef = useRef(false)
 
   useEffect(() => {
     void getOnboardingProfile().then((p) => setProfile(p ?? null))
     void getSessionSettings().then(setSessionSettings)
+    // `current || ...`: non sovrascrive quello che l'utente ha eventualmente già digitato
+    // nel campo mentre questa lettura asincrona da IndexedDB era ancora in corso.
     void getApiKey().then((key) => {
       setApiKeySaved(!!key)
-      setApiKeyState(key ?? '')
+      if (key) setApiKeyState((current) => current || key)
     })
+    void getGistToken().then((token) => {
+      setGistTokenSaved(!!token)
+      if (token) setGistTokenState((current) => current || token)
+    })
+    void getGistId().then((id) => {
+      if (id) setGistIdState((current) => current || id)
+    })
+    void getGistLastSyncAt().then(setGistLastSync)
   }, [])
 
   async function handleSaveApiKey() {
@@ -49,6 +76,67 @@ export function Impostazioni() {
     setApiKeyState('')
     setApiKeySaved(false)
     setMessage('Chiave API rimossa da questo dispositivo.')
+  }
+
+  async function handleSaveGistToken() {
+    if (savingGistTokenRef.current || !gistToken.trim()) return
+    savingGistTokenRef.current = true
+    try {
+      await setGistToken(gistToken.trim())
+      setGistTokenSaved(true)
+      setGistMessage('Token salvato in locale su questo dispositivo.')
+    } finally {
+      savingGistTokenRef.current = false
+    }
+  }
+
+  async function handleClearGistToken() {
+    await clearGistToken()
+    setGistTokenState('')
+    setGistTokenSaved(false)
+    setGistMessage('Token rimosso da questo dispositivo.')
+  }
+
+  async function handlePushGist() {
+    if (syncingGistRef.current || !gistToken.trim()) return
+    syncingGistRef.current = true
+    setGistBusy(true)
+    setGistMessage(null)
+    try {
+      const content = await exportBackupText()
+      const id = await pushBackupToGist(gistToken.trim(), gistId.trim() || null, content)
+      setGistIdState(id)
+      await setGistId(id)
+      const now = new Date().toISOString()
+      setGistLastSync(now)
+      await setGistLastSyncAt(now)
+      setGistMessage('Backup caricato sul Gist privato.')
+    } catch (error) {
+      setGistMessage(error instanceof GistError ? error.message : 'Caricamento non riuscito.')
+    } finally {
+      syncingGistRef.current = false
+      setGistBusy(false)
+    }
+  }
+
+  async function handlePullGist() {
+    if (syncingGistRef.current || !gistToken.trim() || !gistId.trim()) return
+    syncingGistRef.current = true
+    setGistBusy(true)
+    setGistMessage(null)
+    try {
+      const content = await pullBackupFromGist(gistToken.trim(), gistId.trim())
+      await importBackupText(content)
+      const now = new Date().toISOString()
+      setGistLastSync(now)
+      await setGistLastSyncAt(now)
+      setGistMessage('Dati ripristinati dal Gist: hanno sostituito quelli locali.')
+    } catch (error) {
+      setGistMessage(error instanceof GistError ? error.message : 'Importazione non riuscita.')
+    } finally {
+      syncingGistRef.current = false
+      setGistBusy(false)
+    }
   }
 
   async function updateSessionSettings(next: SessionSettings) {
@@ -247,14 +335,97 @@ export function Impostazioni() {
       </div>
 
       <div>
-        <h2 className="text-lg font-semibold">Sincronizzazione</h2>
+        <h2 className="text-lg font-semibold">Sincronizzazione tra dispositivi</h2>
         <p className="mt-1 max-w-prose text-slate-600 dark:text-slate-300">
-          La sincronizzazione tra dispositivi avverrà tramite un Gist privato con un token
-          inserito da te, salvato solo in locale e mai committato.
+          Tramite un Gist privato su GitHub: tu lo crei (o lo riusi) con un token personale,
+          che resta solo in IndexedDB su questo dispositivo, mai nel codice. Serve un token
+          <strong> classico</strong> (non "fine-grained") con lo scope <strong>gist</strong>, creabile su{' '}
+          <a href="https://github.com/settings/tokens/new?scopes=gist&description=Babele" target="_blank" rel="noreferrer" className="underline">
+            github.com/settings/tokens
+          </a>
+          . "Carica" crea il Gist la prima volta (e mostra il suo ID: copialo sugli altri
+          dispositivi); "Scarica" sostituisce i dati locali con quelli del Gist.
         </p>
-        <p className="mt-2 inline-block rounded bg-slate-200 px-3 py-1 text-sm text-slate-700 dark:bg-slate-800 dark:text-slate-300">
-          In arrivo nella Fase 7
+
+        <div className="mt-3 flex max-w-prose flex-wrap items-center gap-2">
+          <input
+            type={showGistToken ? 'text' : 'password'}
+            value={gistToken}
+            onChange={(e) => setGistTokenState(e.target.value)}
+            placeholder="ghp_..."
+            aria-label="Token GitHub per il Gist"
+            autoComplete="off"
+            className="min-w-0 max-w-full flex-1 rounded border border-slate-400 bg-transparent px-2 py-1 dark:border-slate-600"
+          />
+          <button
+            type="button"
+            onClick={() => setShowGistToken((v) => !v)}
+            className="rounded border border-slate-400 px-3 py-1 text-sm dark:border-slate-600"
+          >
+            {showGistToken ? 'Nascondi' : 'Mostra'}
+          </button>
+        </div>
+        <div className="mt-2 flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={() => void handleSaveGistToken()}
+            disabled={!gistToken.trim()}
+            className="rounded bg-slate-900 px-4 py-2 text-white disabled:opacity-40 dark:bg-slate-100 dark:text-slate-900"
+          >
+            Salva token
+          </button>
+          {gistTokenSaved && (
+            <button
+              type="button"
+              onClick={() => void handleClearGistToken()}
+              className="rounded border border-slate-400 px-4 py-2 dark:border-slate-600"
+            >
+              Rimuovi token
+            </button>
+          )}
+        </div>
+        <p className="mt-2 text-sm text-slate-500">
+          {gistTokenSaved ? '✓ Un token è salvato su questo dispositivo.' : 'Nessun token salvato: la sincronizzazione resta disattivata.'}
         </p>
+
+        <label className="mt-3 flex max-w-prose items-center gap-2 text-sm">
+          ID del Gist (vuoto = ne crea uno nuovo al primo caricamento)
+          <input
+            type="text"
+            value={gistId}
+            onChange={(e) => setGistIdState(e.target.value)}
+            placeholder="es. 8f3a1b2c..."
+            aria-label="ID del Gist"
+            className="min-w-0 max-w-full flex-1 rounded border border-slate-400 bg-transparent px-2 py-1 dark:border-slate-600"
+          />
+        </label>
+
+        <div className="mt-2 flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={() => void handlePushGist()}
+            disabled={!gistToken.trim() || gistBusy}
+            className="rounded bg-slate-900 px-4 py-2 text-white disabled:opacity-40 dark:bg-slate-100 dark:text-slate-900"
+          >
+            {gistBusy ? 'Attendere…' : 'Carica su Gist'}
+          </button>
+          <button
+            type="button"
+            onClick={() => void handlePullGist()}
+            disabled={!gistToken.trim() || !gistId.trim() || gistBusy}
+            className="rounded border border-slate-400 px-4 py-2 disabled:opacity-40 dark:border-slate-600"
+          >
+            {gistBusy ? 'Attendere…' : 'Scarica da Gist'}
+          </button>
+        </div>
+        <p role="status" aria-live="polite" className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+          {gistMessage}
+        </p>
+        {gistLastSync && (
+          <p className="mt-1 text-xs text-slate-500">
+            Ultima sincronizzazione: {new Date(gistLastSync).toLocaleString('it-IT')}
+          </p>
+        )}
       </div>
 
       <div>

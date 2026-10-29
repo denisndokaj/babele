@@ -6,10 +6,12 @@ import { ClickableChunk } from '../reading/ClickableChunk'
 import { splitIntoChunks } from '../reading/sentences'
 import { buildWordStatusIndex, type WordStatusIndex } from '../reading/wordStatus'
 import { LANGUAGE_CODES, LANGUAGES } from '../languages'
+import { useActivityTimer } from '../stats/activityTimer'
 import type { LanguageCode } from '../types/models'
 
 export function Musica() {
   const [language, setLanguage] = useState<LanguageCode>('fr')
+  useActivityTimer(language, 'input')
   const [lyrics, setLyrics] = useState('')
   const [statusIndex, setStatusIndex] = useState<WordStatusIndex>({ known: new Set(), learning: new Set() })
   const [addedMessage, setAddedMessage] = useState<string | null>(null)

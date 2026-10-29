@@ -5,8 +5,13 @@ le sessioni future dal contesto giusto.
 
 ## Stato
 
-Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F6 — LLM (diario e tutor)**.
-Non passare alla fase successiva senza via libera esplicito dell'utente.
+Sviluppo per fasi (§9 di `docs/SPEC.md`), una alla volta. Fase corrente: **F7 — Statistiche,
+sync via Gist, rifinitura, test end-to-end**. Non passare alla fase successiva senza via
+libera esplicito dell'utente.
+
+Nota: §6.11 SPEC (Dizionario, ricerca locale su dati Wiktionary) non è mai stata assegnata
+a una fase in §9 né ha una voce nel menu — resta volutamente non implementata. Da
+riconsiderare solo se l'utente lo chiede esplicitamente.
 
 ## Stack
 
@@ -28,6 +33,8 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
 - `npm run lint` — `oxlint`
 - `npm run data:build` — rigenera `/public/data/<lingua>/vocabulary.json` e `credits.json`
   dalla pipeline (richiede `bunzip2` in PATH e accesso di rete)
+- `npm run test:e2e` — build di produzione + test end-to-end Playwright (`/e2e`) sulla build
+  servita da `vite preview`; la prima volta serve anche `npx playwright install chromium`
 
 ## Convenzioni
 
@@ -138,6 +145,44 @@ Non passare alla fase successiva senza via libera esplicito dell'utente.
   perché è necessaria, mai un errore). Gli errori segnalati dal modello diventano carte di
   tipo `production` taggate `diario`/`conversazione` tramite `errorsToCards`/`saveErrorCards`
   in `src/llm/diary.ts` (riusata da entrambe le pagine).
+- **Statistiche** (`src/stats/`): niente snapshot giornaliero di parole note/in apprendimento
+  — `wordsKnown`/`wordsLearning` in `dailyStats` restano a 0 e il conteggio vero si calcola
+  dal vivo (`languageStats.ts`, riusa `buildWordStatusIndex`), più accurato di uno snapshot
+  per un'app senza lavori in background che lo scriverebbero una volta al giorno. `dailyStats`
+  serve solo per `minutesInput`/`minutesOutput` (vedi `activityTimer.ts`, un hook React che
+  misura il tempo con la scheda visibile e lo registra con un flush periodico ogni 20s + allo
+  smontaggio/`pagehide`, montato come 'input' in AscoltaGuarda/Leggi/Musica e nel tab Dettato
+  di Pronuncia, come 'output' in Scrivi/Conversa e nel tab Pronuncia) e per la heatmap
+  (`heatmap.ts`: le giornate attive includono anche diario/conversazioni/revisioni SRS, non
+  solo il tempo cronometrato). La ritenzione stimata usa `scheduler.get_retrievability` di
+  `ts-fsrs` (esportato da `src/srs/fsrs.ts` insieme a `toFsrsCard`, non duplicarlo altrove).
+  Il livello CEFR stimato (`cefr.ts`) è una soglia euristica sul numero di parole note, **satura
+  a B2**: il vocabolario della pipeline (~2000 lemmi a lingua, §7 SPEC) non permette di
+  attestare C1/C2 in modo verificabile. Lo streak (`streak.ts`) è unico, sulle lingue
+  combinate, non per lingua; i giorni di riposo configurabili (`settings.ts`:
+  `streakSettings`) non interrompono la serie se non c'è attività, e il giorno corrente non
+  la interrompe finché non è ancora finito — nessuna pressione o gamification invadente
+  (§6.13 SPEC).
+- **Sincronizzazione via Gist** (`src/sync/gist.ts`): verificata in Fase 7 la documentazione
+  ufficiale (`docs.github.com/en/rest/gists/gists`) prima di scrivere il client — header
+  `Authorization: Bearer <token>` (non il vecchio formato `token <token>`), endpoint
+  `POST /gists` (crea) / `PATCH /gists/{id}` (aggiorna) / `GET /gists/{id}` (legge, con
+  fallback su `raw_url` se il contenuto è troncato). Serve un token **classico** con lo
+  scope "gist": i token "fine-grained" non coprono i Gist. Riusa `exportBackupText`/
+  `importBackupText` di `src/db/backup.ts` (stesso formato dell'export/import su file):
+  non duplicare la logica di backup per il Gist. Come la chiave API Anthropic, il token
+  resta solo in IndexedDB (`settings.ts`: `gistToken`/`gistId`/`gistLastSyncAt`).
+- **Test end-to-end** (`/e2e`, Playwright): girano sulla build di produzione
+  (`npm run test:e2e` = `npm run build && playwright test`), non sul dev server — quello che
+  testano è quello che finisce davvero su GitHub Pages. `playwright.config.ts` usa un solo
+  worker e blocca i service worker (`serviceWorkers: 'block'`): altrimenti quello di
+  `vite-plugin-pwa` può restare attivo tra una pagina e l'altra più del previsto e introdurre
+  lentezze incoerenti nei test. `retries: 1`: l'automazione del browser ha una variabilità di
+  tempo intrinseca che a volte supera il timeout anche a parità di comportamento dell'app; un
+  fallimento che si ripete anche al retry è un fallimento vero. Scrivendo un nuovo test, se un
+  selettore è ambiguo (es. un link che compare sia nella barra di navigazione sia nel testo),
+  restringilo con `.locator('#contenuto')` o un ruolo/testo più specifico invece di aggiungere
+  attese arbitrarie.
 
 ## Deploy
 

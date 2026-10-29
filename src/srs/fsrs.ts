@@ -18,9 +18,9 @@ export type ReviewLogInput = Omit<ReviewLog, 'id'>
  * `enable_fuzz` sparge leggermente le date di scadenza tra carte simili,
  * evitando che si accumulino tutte nello stesso giorno (§6.2 SPEC).
  */
-const scheduler = fsrs(generatorParameters({ enable_fuzz: true }))
+export const scheduler = fsrs(generatorParameters({ enable_fuzz: true }))
 
-function toFsrsCard(log: ReviewLogInput | undefined, now: Date): FsrsCard {
+export function toFsrsCard(log: ReviewLogInput | undefined, now: Date): FsrsCard {
   if (!log) return createEmptyCard(now)
   return {
     due: new Date(log.due),

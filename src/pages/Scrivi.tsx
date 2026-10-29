@@ -5,6 +5,7 @@ import { LANGUAGE_CODES, LANGUAGES } from '../languages'
 import { correctJournalEntry, LlmError, saveErrorCards } from '../llm/diary'
 import type { LlmErrorItem } from '../llm/schema'
 import { getApiKey } from '../settings/settings'
+import { useActivityTimer } from '../stats/activityTimer'
 import type { Card, JournalEntry, LanguageCode } from '../types/models'
 
 function pickRandom<T>(items: T[], count: number): T[] {
@@ -19,6 +20,7 @@ function pickRandom<T>(items: T[], count: number): T[] {
 
 export function Scrivi() {
   const [language, setLanguage] = useState<LanguageCode>('fr')
+  useActivityTimer(language, 'output')
   const [hasApiKey, setHasApiKey] = useState(false)
   const [text, setText] = useState('')
   const [entries, setEntries] = useState<JournalEntry[]>([])

@@ -8,6 +8,7 @@ import { classifyCoverage, estimateCoverage } from '../subtitles/coverage'
 import { findCueAt, parseSubtitles, type SubtitleCue } from '../subtitles/parser'
 import { MEDIA_CATALOG } from '../content/media/catalog'
 import { LANGUAGE_CODES, LANGUAGES } from '../languages'
+import { useActivityTimer } from '../stats/activityTimer'
 import type { LanguageCode } from '../types/models'
 
 type VideoSource = { kind: 'file'; url: string } | { kind: 'youtube'; videoId: string }
@@ -24,6 +25,7 @@ const COVERAGE_LABEL: Record<string, string> = {
 
 export function AscoltaGuarda() {
   const [language, setLanguage] = useState<LanguageCode>('fr')
+  useActivityTimer(language, 'input')
   const [source, setSource] = useState<VideoSource | null>(null)
   const [cuesL2, setCuesL2] = useState<SubtitleCue[]>([])
   const [cuesIt, setCuesIt] = useState<SubtitleCue[]>([])

@@ -9,10 +9,12 @@ import { buildWordStatusIndex, type WordStatusIndex } from '../reading/wordStatu
 import { tokenizeWords } from '../subtitles/coverage'
 import { speak } from '../speech/tts'
 import { LANGUAGE_CODES, LANGUAGES } from '../languages'
+import { useActivityTimer } from '../stats/activityTimer'
 import type { LanguageCode } from '../types/models'
 
 export function Leggi() {
   const [language, setLanguage] = useState<LanguageCode>('fr')
+  useActivityTimer(language, 'input')
   const [text, setText] = useState('')
   const [sourceLabel, setSourceLabel] = useState('testo incollato')
   const [statusIndex, setStatusIndex] = useState<WordStatusIndex>({ known: new Set(), learning: new Set() })

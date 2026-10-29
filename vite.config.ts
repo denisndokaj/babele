@@ -52,5 +52,7 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
+    // I test end-to-end in /e2e girano con Playwright (`npm run test:e2e`), non con Vitest.
+    exclude: ['**/node_modules/**', '**/e2e/**'],
   },
 })

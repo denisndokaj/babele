@@ -16,6 +16,11 @@ coverage
 # Download cache della pipeline dati: file grezzi, non vanno committati.
 scripts/pipeline/.cache
 
+# Output dei test end-to-end Playwright (§9 SPEC F7): rigenerati a ogni esecuzione.
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
 # Chiavi, token e dati personali: non devono mai finire nel repo.
 # La chiave API Anthropic e il token del Gist vivono solo in IndexedDB nel browser.
 # Pattern volutamente specifici: wildcard generiche come *token*/*secret* catturano

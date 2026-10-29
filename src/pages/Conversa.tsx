@@ -8,6 +8,7 @@ import { saveErrorCards } from '../llm/diary'
 import type { ConversationSummary } from '../llm/schema'
 import { buildWordStatusIndex } from '../reading/wordStatus'
 import { getApiKey, getOnboardingProfile } from '../settings/settings'
+import { useActivityTimer } from '../stats/activityTimer'
 import type { CEFRLevel, ConversationMessage, LanguageCode } from '../types/models'
 
 type Phase = 'setup' | 'chatting' | 'summary'
@@ -45,6 +46,7 @@ export function Conversa() {
 function ConversaWithKey({ apiKey }: { apiKey: string }) {
   const [phase, setPhase] = useState<Phase>('setup')
   const [language, setLanguage] = useState<LanguageCode>('fr')
+  useActivityTimer(language, 'output')
   const [scenario, setScenario] = useState<ConversationScenario>('bar')
   const [conversationId, setConversationId] = useState<number | null>(null)
   const [messages, setMessages] = useState<ConversationMessage[]>([])

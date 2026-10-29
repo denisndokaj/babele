@@ -21,7 +21,7 @@ const TABLE_NAMES = [
   'settings',
 ] as const
 
-export async function exportBackup(): Promise<Blob> {
+export async function exportBackupText(): Promise<string> {
   const tables: Record<string, unknown[]> = {}
   for (const name of TABLE_NAMES) {
     tables[name] = await db.table(name).toArray()
@@ -31,7 +31,11 @@ export async function exportBackup(): Promise<Blob> {
     exportedAt: new Date().toISOString(),
     tables,
   }
-  return new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })
+  return JSON.stringify(payload, null, 2)
+}
+
+export async function exportBackup(): Promise<Blob> {
+  return new Blob([await exportBackupText()], { type: 'application/json' })
 }
 
 export async function downloadBackup(): Promise<void> {
@@ -45,8 +49,7 @@ export async function downloadBackup(): Promise<void> {
   URL.revokeObjectURL(url)
 }
 
-export async function importBackup(file: File): Promise<void> {
-  const text = await file.text()
+export async function importBackupText(text: string): Promise<void> {
   const payload = JSON.parse(text) as BackupPayload
 
   if (typeof payload.backupVersion !== 'number' || typeof payload.tables !== 'object') {
@@ -61,4 +64,8 @@ export async function importBackup(file: File): Promise<void> {
       await db.table(name).bulkPut(rows)
     }
   })
+}
+
+export async function importBackup(file: File): Promise<void> {
+  await importBackupText(await file.text())
 }

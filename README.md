@@ -29,6 +29,10 @@ L'app parte su `http://localhost:5173/` (porta stampata in console).
 | `npm run lint` | lint con Oxlint |
 | `npm run preview` | serve la build di produzione in locale |
 | `npm run data:build` | rigenera `/public/data/<lingua>/vocabulary.json` e `credits.json` |
+| `npm run test:e2e` | build + test end-to-end Playwright sui flussi principali (`/e2e`) |
+
+Per i test end-to-end, la prima volta serve anche scaricare il browser:
+`npx playwright install chromium`.
 
 ## Dati e backup
 
@@ -40,6 +44,16 @@ Nessuna chiave API o token viene mai scritto nel codice o nel repository: la
 chiave API Anthropic (opzionale, per diario/conversazione) e il token per la
 sincronizzazione via Gist si inseriscono dalle Impostazioni e restano solo in
 IndexedDB sul dispositivo.
+
+## Sincronizzazione tra dispositivi
+
+Dalle **Impostazioni** si può sincronizzare il backup tramite un Gist privato
+di GitHub: serve un token personale **classico** (non "fine-grained") con lo
+scope `gist`, creabile su [github.com/settings/tokens](https://github.com/settings/tokens).
+"Carica" crea il Gist la prima volta (mostrandone l'ID da copiare sugli altri
+dispositivi) o lo aggiorna; "Scarica" sostituisce i dati locali con quelli nel
+Gist. Il token non lascia mai questo browser se non per parlare direttamente
+con l'API di GitHub.
 
 ## Come aggiungere contenuti
 
@@ -74,6 +88,13 @@ Perché funzioni, nelle impostazioni del repository GitHub, *Settings → Pages
 
 ## Stato del progetto
 
-Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F6 — LLM**
-(diario con correzione opzionale via API Anthropic, tutor di conversazione
-a scenari con riepilogo degli errori a fine sessione). F0–F5 sono complete.
+Sviluppo per fasi, vedi `docs/SPEC.md` §9. Fase corrente: **F7 — Statistiche,
+sincronizzazione via Gist, rifinitura, test end-to-end** (parole note/in
+apprendimento, ritenzione stimata, ore di input/output, livello CEFR stimato
+e heatmap per lingua, serie di giorni con giorni di riposo configurabili;
+sincronizzazione del backup via Gist privato; suite Playwright sui flussi
+principali). F0–F6 sono complete.
+
+Non implementato per scelta: il **Dizionario** di `docs/SPEC.md` §6.11 non è
+mai stato assegnato a una fase né ha una voce nel menu — resta fuori finché
+non viene richiesto esplicitamente.
