@@ -83,26 +83,30 @@ riconsiderare solo se l'utente lo chiede esplicitamente.
   unità (≥15 esercizi, permutazioni valide dei riordini, indici validi delle scelte
   multiple…): va tenuto verde quando si aggiunge contenuto. `src/grammar/checkAnswer.ts`
   contiene la logica di verifica delle risposte, pura e testata separatamente dalla UI.
-  **Traguardo dichiarato (ottobre 2026)**: estensione da A1 a madrelingua **fino al C1**, a
-  tappe (un livello alla volta, con verifica e resoconto tra l'una e l'altra), non C2 — a
-  quel punto la competenza è lessicale/pragmatica più che grammaticale, e un esercizio a
-  scelta multipla sul C2 ha poco senso didattico; il C2 resta coperto da Leggi/Conversa/
-  Scrivi. Stato: **A1 (6 unità/lingua), A2 (5 unità/lingua), B1 e B2 completi**; resta solo il
-  C1 (titoli in `UPCOMING_UNITS`, ancora da affinare). Gli argomenti NON sono forzati identici
-  tra le tre lingue: a A1/A2 ci sono 4-5 argomenti condivisi per livello (scritti
-  separatamente per lingua, stesso `nodeId`) più argomenti specifici dove la grammatica reale
-  lo richiede (es. A2: partitivo FR, verbi modali DE, ser/estar ES); al B1 il tedesco ne ha 4
-  (casi, verbi separabili, **più** condizionale e congiuntivo tedeschi — il Konjunktiv II e il
-  Konjunktiv I richiedono un trattamento specifico, non il semplice "condizionale"/
-  "congiuntivo" di FR/ES) contro 2 per francese e spagnolo; al **B2 non c'è più nessun
-  argomento condiviso**: 2 unità specifiche per lingua a testa (pronomi relativi + discorso
-  indiretto FR; passivo + ordine delle subordinate DE; por/para + imperfecto/indefinido ES),
-  nessuna tabella comparativa aggiunta per queste (il confronto a 4 colonne non è più sensato
-  quando gli argomenti stessi non si corrispondono). `nodeId` non va quindi assunto condiviso
-  tra lingue, serve solo a raggruppare le tabelle comparative in `comparativeTables.ts` quando
-  il confronto regge concettualmente (A1/A2 e condizionale/congiuntivo al B1). `content.test.ts`:
-  `EXPECTED_UNIT_COUNTS` tiene il conteggio atteso per lingua/livello — va aggiornato ad ogni
-  tappa, non è più un numero fisso uguale per tutte le lingue.
+  **Traguardo dichiarato (ottobre 2026) — RAGGIUNTO**: estensione da A1 a madrelingua fino al
+  C1 (non C2: a quel punto la competenza è lessicale/pragmatica più che grammaticale, e un
+  esercizio a scelta multipla ha poco senso didattico; il C2 resta coperto da Leggi/Conversa/
+  Scrivi), completata a tappe (A2→B1→B2→C1, un livello alla volta, con verifica e resoconto
+  tra l'una e l'altra). Stato finale: **A1 (6 unità/lingua), A2 (5/lingua), B1 (2 FR/ES, 4 DE),
+  B2 (2/lingua) e C1 (2/lingua) tutti completi**. Nessun'altra estensione di livello è in
+  programma: eventuali nuove unità (es. i tre argomenti A1 mai scritti, ancora in
+  `UPCOMING_UNITS`) vanno aggiunte solo su richiesta esplicita dell'utente. Gli argomenti NON
+  sono forzati identici tra le tre lingue: a A1/A2 ci sono 4-5 argomenti condivisi per livello
+  (scritti separatamente per lingua, stesso `nodeId`) più argomenti specifici dove la
+  grammatica reale lo richiede (es. A2: partitivo FR, verbi modali DE, ser/estar ES); al B1 il
+  tedesco ne ha 4 (casi, verbi separabili, **più** condizionale e congiuntivo tedeschi — il
+  Konjunktiv II e il Konjunktiv I richiedono un trattamento specifico, non il semplice
+  "condizionale"/"congiuntivo" di FR/ES) contro 2 per francese e spagnolo; da **B2 in su non
+  c'è più nessun argomento condiviso**: 2 unità specifiche per lingua a testa a ogni livello
+  (B2: pronomi relativi + discorso indiretto FR, passivo + ordine delle subordinate DE, por/
+  para + imperfecto/indefinido ES; C1: subjonctif passé + temps littéraires FR, Konjunktiv II
+  der Vergangenheit + Nominalisierung DE, pluscuamperfecto de subjuntivo + pasiva refleja ES),
+  nessuna tabella comparativa aggiunta per questi due livelli (il confronto a 4 colonne non è
+  più sensato quando gli argomenti stessi non si corrispondono). `nodeId` non va quindi
+  assunto condiviso tra lingue, serve solo a raggruppare le tabelle comparative in
+  `comparativeTables.ts` quando il confronto regge concettualmente (A1/A2 e condizionale/
+  congiuntivo al B1). `content.test.ts`: `EXPECTED_UNIT_COUNTS` tiene il conteggio finale per
+  lingua/livello — se si riapre questo lavoro, va esteso con lo stesso criterio.
 - **Sottotitoli e video** (`src/subtitles/`, `src/media/`): parser SRT/VTT scritti a mano
   (sono formati di file standard, non un dataset esterno). Il player video locale usa
   `<video>` nativo; YouTube passa sempre dall'IFrame API ufficiale

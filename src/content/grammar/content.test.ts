@@ -11,10 +11,10 @@ const MIN_EXERCISES = 15
  * un'unità propria in francese/spagnolo (§CLAUDE.md: gli argomenti non sono forzati identici
  * tra le lingue).
  */
-const EXPECTED_UNIT_COUNTS: Record<string, Partial<Record<'A1' | 'A2' | 'B1' | 'B2', number>>> = {
-  fr: { A1: 6, A2: 5, B1: 2, B2: 2 },
-  de: { A1: 6, A2: 5, B1: 4, B2: 2 },
-  es: { A1: 6, A2: 5, B1: 2, B2: 2 },
+const EXPECTED_UNIT_COUNTS: Record<string, Partial<Record<'A1' | 'A2' | 'B1' | 'B2' | 'C1', number>>> = {
+  fr: { A1: 6, A2: 5, B1: 2, B2: 2, C1: 2 },
+  de: { A1: 6, A2: 5, B1: 4, B2: 2, C1: 2 },
+  es: { A1: 6, A2: 5, B1: 2, B2: 2, C1: 2 },
 }
 
 function sortedWords(words: string[]): string[] {

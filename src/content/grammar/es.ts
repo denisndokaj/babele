@@ -725,4 +725,104 @@ export const ES_UNITS: GrammarUnitContent[] = [
       { l2: 'De repente, oí un ruido.', it: 'Improvvisamente, sentii un rumore.' },
     ],
   },
+  {
+    id: 'es-subjuntivo-pasado',
+    language: 'es',
+    cefrLevel: 'C1',
+    nodeId: 'subjuntivo-pasado-spagnolo',
+    title: 'El pluscuamperfecto de subjuntivo y el periodo hipotético',
+    noticingExamples: [
+      { l2: 'Si hubiera sabido, habría venido.', it: 'Se avessi saputo, sarei venuto.' },
+      { l2: 'Si hubieras estudiado, habrías aprobado.', it: 'Se avessi studiato, saresti stato promosso.' },
+      { l2: 'Ojalá hubiera venido.', it: 'Magari fosse venuto!' },
+      { l2: 'Si hubiésemos llegado antes, habríamos visto el espectáculo.', it: 'Se fossimo arrivati prima, avremmo visto lo spettacolo.' },
+      { l2: 'Me habría gustado conocerlo.', it: 'Mi sarebbe piaciuto conoscerlo.' },
+    ],
+    contrastiveExplanation:
+      'Per un\'ipotesi NON REALIZZATA nel passato ("se avessi saputo, sarei venuto" — ma non ho ' +
+      'saputo, e non sono venuto), lo spagnolo usa la stessa identica logica a due pezzi ' +
+      'dell\'italiano: il pluscuamperfecto de subjuntivo (hubiera/hubiese + participio: hubiera ' +
+      'hablado) nella proposizione con "si", e il condicional compuesto (habría + participio: habría ' +
+      'venido) nella conseguenza — esattamente come l\'italiano usa il congiuntivo trapassato (se ' +
+      'avessi saputo) e il condizionale passato (sarei venuto). Questo è probabilmente il punto più ' +
+      'facile del C1 per un italiano, perché la struttura è quasi calcata. Una particolarità in più ' +
+      'dello spagnolo: per il pluscuamperfecto de subjuntivo esistono DUE forme equivalenti e ' +
+      'intercambiabili, "hubiera hablado" e "hubiese hablado" (quest\'ultima leggermente più ' +
+      'letteraria) — l\'italiano ne ha solo una.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Se avessi saputo, sarei venuto':", options: ['Si hubiera sabido, habría venido.', 'Si supiera, vendría.', 'Si sabría, habría venido.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Pluscuamperfecto de subjuntivo di 'hablar', io:", options: ['hubiera hablado', 'había hablado', 'habría hablado'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Condicional compuesto di 'venir', io:", options: ['habría venido', 'hubiera venido', 'había venido'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: 'Quali due forme sono equivalenti per il pluscuamperfecto de subjuntivo?', options: ['hubiera e hubiese', 'habría e hubiera', 'había e habría'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'Ojalá hubiera venido' esprime:", options: ['un desiderio non realizzato nel passato', 'un desiderio per il futuro', 'un fatto certo'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "Questa costruzione spagnola, rispetto all'italiano, è:", options: ['quasi identica (congiuntivo trapassato + condizionale passato)', 'completamente diversa', "più semplice, un'unica forma"], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Si ___ sabido, habría venido.', answer: 'hubiera' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Si hubieras estudiado, ___ aprobado.', answer: 'habrías' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Me ___ gustado conocerlo.', answer: 'habría' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'Si hubiésemos llegado antes, ___ visto el espectáculo.', answer: 'habríamos' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'se avessi saputo, sarei venuto', answerL2: 'Si hubiera sabido, habría venido.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'se avessi studiato, saresti stato promosso', answerL2: 'Si hubieras estudiado, habrías aprobado.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'mi sarebbe piaciuto conoscerlo', answerL2: 'Me habría gustado conocerlo.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['sabido', 'si', 'hubiera', 'venido', 'habría'], answer: ['si', 'hubiera', 'sabido', 'habría', 'venido'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['gustado', 'me', 'conocerlo', 'habría'], answer: ['me', 'habría', 'gustado', 'conocerlo'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: 'Il periodo hipotético irreale del passato si costruisce con:', options: ['pluscuamperfecto de subjuntivo (si) + condicional compuesto', 'presente + futuro', 'imperfecto + indefinido'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Questo è, per un italiano, un punto del C1:', options: ["tra i più facili, perché la struttura è quasi calcata sull'italiano", 'tra i più difficili', 'impossibile da imparare'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Si hubiera sabido, habría venido.', it: 'Se avessi saputo, sarei venuto.' },
+      { l2: 'Si hubieras estudiado, habrías aprobado.', it: 'Se avessi studiato, saresti stato promosso.' },
+      { l2: 'Ojalá hubiera venido.', it: 'Magari fosse venuto!' },
+      { l2: 'Me habría gustado conocerlo.', it: 'Mi sarebbe piaciuto conoscerlo.' },
+    ],
+  },
+  {
+    id: 'es-pasiva-refleja',
+    language: 'es',
+    cefrLevel: 'C1',
+    nodeId: 'pasiva-refleja-spagnola',
+    title: 'La voz pasiva y la pasiva refleja (se vende, se dice)',
+    noticingExamples: [
+      { l2: 'La casa fue construida en 1990.', it: 'La casa fu costruita nel 1990.' },
+      { l2: 'Se vende esta casa.', it: 'Si vende questa casa.' },
+      { l2: 'Aquí se habla español.', it: 'Qui si parla spagnolo.' },
+      { l2: 'Se dice que va a llover.', it: 'Si dice che pioverà.' },
+      { l2: 'No se permite fumar aquí.', it: 'Non si può fumare qui.' },
+    ],
+    contrastiveExplanation:
+      'Lo spagnolo ha due costruzioni passive: quella "classica" con ser + participio ("la casa FUE ' +
+      'construida" = la casa fu costruita), usata soprattutto nello scritto formale e meno frequente ' +
+      'nel parlato di quanto non sia in italiano; e la "pasiva refleja" (o "se" impersonale), molto ' +
+      'più comune nella lingua di tutti i giorni, specialmente per affermazioni generali, istruzioni, ' +
+      'cartelli: "SE vende esta casa" (si vende questa casa), "aquí SE habla español" (qui si parla ' +
+      'spagnolo), "SE dice que..." (si dice che...). Questo è probabilmente uno dei punti più facili ' +
+      'del C1 per un italiano, perché lo spagnolo "se" impersonale/passivante si comporta in modo ' +
+      'quasi identico all\'italiano "si" impersonale/passivante ("si vende", "si parla", "si dice") ' +
+      '— la stessa particella, lo stesso meccanismo, persino la stessa frequenza d\'uso relativa (più ' +
+      'comune del passivo con essere/ser nel parlato quotidiano).',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Si vende questa casa' (pasiva refleja):", options: ['Se vende esta casa.', 'Esta casa es vendida.', 'Esta casa fue vendida.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'Qui si parla spagnolo':", options: ['Aquí se habla español.', 'Aquí es hablado español.', 'Aquí habla español.'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "'La casa fu costruita nel 1990' (passiva classica):", options: ['La casa fue construida en 1990.', 'La casa se construyó en 1990.', 'La casa construyó en 1990.'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: 'Quale costruzione è più comune nel parlato quotidiano spagnolo?', options: ['la pasiva refleja con se', 'la passiva classica con ser', 'nessuna delle due'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'No se permite fumar aquí' significa:", options: ['non si può fumare qui', 'non è permesso da qualcuno', 'nessuno fuma qui'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "Lo spagnolo 'se' impersonale/passivante corrisponde, in italiano, a:", options: ["'si' impersonale (si vende, si parla)", "niente, è un'invenzione spagnola", 'il pronome riflessivo sempre'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: '___ vende esta casa.', answer: 'Se' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Aquí ___ habla español.', answer: 'se' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'La casa ___ construida en 1990.', answer: 'fue' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: '___ dice que va a llover.', answer: 'Se' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'si vende questa casa', answerL2: 'Se vende esta casa.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'qui si parla spagnolo', answerL2: 'Aquí se habla español.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'si dice che pioverà', answerL2: 'Se dice que va a llover.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['esta', 'vende', 'se', 'casa'], answer: ['se', 'vende', 'esta', 'casa'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['español', 'aquí', 'habla', 'se'], answer: ['aquí', 'se', 'habla', 'español'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "Rispetto all'italiano, il 'se' impersonale/passivante spagnolo è:", options: ['quasi identico al "si" italiano, uno dei punti più facili del C1', 'completamente diverso', 'assente in spagnolo'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Qual è l\'uso tipico della pasiva refleja?', options: ['affermazioni generali, istruzioni, cartelli', 'solo la poesia', 'solo il linguaggio giuridico'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Se vende esta casa.', it: 'Si vende questa casa.' },
+      { l2: 'Aquí se habla español.', it: 'Qui si parla spagnolo.' },
+      { l2: 'Se dice que va a llover.', it: 'Si dice che pioverà.' },
+      { l2: 'No se permite fumar aquí.', it: 'Non si può fumare qui.' },
+    ],
+  },
 ]

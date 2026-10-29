@@ -831,4 +831,106 @@ export const DE_UNITS: GrammarUnitContent[] = [
       { l2: 'Ich weiß nicht, ob sie kommt.', it: 'Non so se viene.' },
     ],
   },
+  {
+    id: 'de-konjunktiv-2-vergangenheit',
+    language: 'de',
+    cefrLevel: 'C1',
+    nodeId: 'konjunktiv-vergangenheit-tedesco',
+    title: 'Der Konjunktiv II der Vergangenheit',
+    noticingExamples: [
+      { l2: 'Wenn ich Zeit gehabt hätte, wäre ich gekommen.', it: 'Se avessi avuto tempo, sarei venuto.' },
+      { l2: 'Ich hätte das nicht gesagt.', it: "Non l'avrei detto." },
+      { l2: 'Er wäre gern geblieben.', it: 'Sarebbe rimasto volentieri.' },
+      { l2: 'Hättest du das gewusst, hättest du es mir gesagt.', it: "Se l'avessi saputo, me l'avresti detto." },
+      { l2: 'Wir hätten mehr Zeit gebraucht.', it: 'Avremmo avuto bisogno di più tempo.' },
+    ],
+    contrastiveExplanation:
+      'Nell\'unità sul condizionale (B1) abbiamo visto il Konjunktiv II per il presente/futuro ' +
+      '(würde kommen, wäre froh). Per parlare di un\'ipotesi NON REALIZZATA NEL PASSATO ("se avessi ' +
+      'avuto tempo, sarei venuto" — ma non l\'ho avuto, e non sono venuto), il tedesco usa hätte/' +
+      'wäre (le stesse forme già imparate) + Partizip II: "wenn ich Zeit gehabt HÄTTE, wäre ich ' +
+      'gekommen". È la stessa logica dell\'italiano, che per lo stesso concetto usa il congiuntivo ' +
+      'trapassato nella condizione (se avessi avuto) e il condizionale passato nella conseguenza ' +
+      '(sarei venuto) — entrambe le lingue costruiscono questa forma passata combinando elementi già ' +
+      'noti, non con una forma nuova e separata. Da notare: nella domanda diretta senza "wenn", si ' +
+      'può invertire l\'ordine mettendo "hättest/wärst" all\'inizio: "HÄTTEST du das gewusst, ..." ' +
+      '(se l\'avessi saputo...) — un\'alternativa stilistica a "wenn du das gewusst hättest".',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Se avessi avuto tempo, sarei venuto':", options: ['Wenn ich Zeit gehabt hätte, wäre ich gekommen.', 'Wenn ich Zeit habe, komme ich.', 'Wenn ich Zeit hätte, komme ich.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'Non l'avrei detto':", options: ['Ich hätte das nicht gesagt.', 'Ich habe das nicht gesagt.', 'Ich sage das nicht.'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: 'Il Konjunktiv II der Vergangenheit si forma con:', options: ['hätte/wäre + Partizip II', 'würde + Partizip II', 'hätte/wäre + infinito'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "'Er wäre gern geblieben' significa:", options: ['sarebbe rimasto volentieri', 'rimarrebbe volentieri', 'è rimasto volentieri'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "Si può iniziare la frase con 'hättest du...' invece di 'wenn du... hättest' per:", options: ['una variante stilistica, senza wenn', 'un significato diverso', 'un tempo diverso'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'cloze', sentence: 'Wenn ich Zeit gehabt ___, wäre ich gekommen.', answer: 'hätte' } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: 'Ich ___ das nicht gesagt.', answer: 'hätte' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Er ___ gern geblieben.', answer: 'wäre' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Wir ___ mehr Zeit gebraucht.', answer: 'hätten' } },
+      { id: 'ex10', payload: { type: 'translation-it-l2', promptIt: 'se avessi avuto tempo, sarei venuto', answerL2: 'Wenn ich Zeit gehabt hätte, wäre ich gekommen.' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: "non l'avrei detto", answerL2: 'Ich hätte das nicht gesagt.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'sarebbe rimasto volentieri', answerL2: 'Er wäre gern geblieben.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'avremmo avuto bisogno di più tempo', answerL2: 'Wir hätten mehr Zeit gebraucht.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['hätte', 'ich', 'gesagt', 'das', 'nicht'], answer: ['ich', 'hätte', 'das', 'nicht', 'gesagt'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['wäre', 'er', 'geblieben', 'gern'], answer: ['er', 'wäre', 'gern', 'geblieben'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "Rispetto all'italiano, questa costruzione tedesca è:", options: ['concettualmente parallela (congiuntivo trapassato + condizionale passato combinano elementi noti)', 'completamente diversa', 'assente in tedesco'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Le forme hätte/wäre usate qui sono le stesse di quale altra unità già vista?', options: ['il Konjunktiv II del condizionale (B1)', 'il Konjunktiv I del discorso indiretto', 'il Perfekt'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Wenn ich Zeit gehabt hätte, wäre ich gekommen.', it: 'Se avessi avuto tempo, sarei venuto.' },
+      { l2: 'Ich hätte das nicht gesagt.', it: "Non l'avrei detto." },
+      { l2: 'Er wäre gern geblieben.', it: 'Sarebbe rimasto volentieri.' },
+      { l2: 'Wir hätten mehr Zeit gebraucht.', it: 'Avremmo avuto bisogno di più tempo.' },
+    ],
+  },
+  {
+    id: 'de-nominalisierung',
+    language: 'de',
+    cefrLevel: 'C1',
+    nodeId: 'nominalisierung-tedesco',
+    title: 'Die Nominalisierung',
+    noticingExamples: [
+      { l2: 'Nach der Ankunft ging er sofort ins Büro.', it: "Dopo l'arrivo, andò subito in ufficio." },
+      { l2: 'Die Entscheidung des Gerichts überraschte alle.', it: 'La decisione del tribunale sorprese tutti.' },
+      { l2: 'Trotz des Regens gingen wir spazieren.', it: 'Nonostante la pioggia, andammo a passeggio.' },
+      { l2: 'Das Lesen macht mir Freude.', it: 'Leggere mi fa piacere.' },
+      { l2: 'Wegen der Verspätung verpasste er den Zug.', it: 'A causa del ritardo, perse il treno.' },
+    ],
+    contrastiveExplanation:
+      'Il tedesco formale, burocratico e accademico preferisce fortemente costruzioni NOMINALIZZATE ' +
+      '(trasformare un verbo in un sostantivo) invece di una proposizione subordinata: "nach der ' +
+      'Ankunft" (dopo l\'arrivo) al posto di "nachdem er angekommen war" (dopo che era arrivato) — ' +
+      'la frase si comprime, un sostantivo con preposizione sostituisce un\'intera subordinata. Due ' +
+      'modi principali di nominalizzare: l\'infinito usato come sostantivo neutro, con iniziale ' +
+      'maiuscola (das Lesen = il leggere, das Ankommen = l\'arrivo), oppure la radice del verbo + il ' +
+      'suffisso -ung (entscheiden→die Entscheidung, lösen→die Lösung). Preposizioni come "nach", ' +
+      '"bei", "trotz", "wegen" + un sostantivo nominalizzato sostituiscono spesso una subordinata ' +
+      'introdotta da "nachdem", "wenn", "obwohl", "weil". Anche l\'italiano nominalizza (l\'arrivo, ' +
+      'la decisione), ma non la usa in modo così sistematico per SOSTITUIRE le subordinate nello ' +
+      'scritto formale — il tedesco accademico/burocratico spinge la nominalizzazione molto più ' +
+      'avanti, rendendo i testi formali più densi di sostantivi di quanto un italiano si aspetterebbe.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Dopo l'arrivo' in tedesco:", options: ['Nach der Ankunft', 'Nachdem die Ankunft', 'Nach ankommen'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "'Il leggere' (l'infinito come sostantivo) in tedesco:", options: ['das Lesen', 'der Lesen', 'lesen'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Sostantivo da 'entscheiden' (decidere) con -ung:", options: ['die Entscheidung', 'der Entscheid', 'das Entscheidung'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "'Trotz des Regens' sostituisce una subordinata introdotta da:", options: ['obwohl', 'weil', 'nachdem'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "'Wegen der Verspätung' sostituisce una subordinata introdotta da:", options: ['weil', 'wenn', 'obwohl'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "Rispetto all'italiano, il tedesco formale usa la nominalizzazione:", options: ['molto più sistematicamente, anche per sostituire intere subordinate', 'meno frequentemente', 'mai'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: '___ der Ankunft ging er sofort ins Büro.', answer: 'Nach' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: 'Die ___ des Gerichts überraschte alle.', answer: 'Entscheidung' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: '___ des Regens gingen wir spazieren.', answer: 'Trotz' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'Das ___ macht mir Freude.', answer: 'Lesen' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: "dopo l'arrivo", answerL2: 'nach der Ankunft' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'la decisione del tribunale', answerL2: 'die Entscheidung des Gerichts' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'nonostante la pioggia', answerL2: 'trotz des Regens' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['der', 'nach', 'ankunft'], answer: ['nach', 'der', 'Ankunft'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['Freude', 'das', 'mir', 'lesen', 'macht'], answer: ['das', 'Lesen', 'macht', 'mir', 'Freude'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: 'Qual è un modo comune di nominalizzare un verbo tedesco?', options: ["l'infinito maiuscolo come sostantivo neutro, o radice + -ung", 'aggiungere -heit a qualsiasi verbo', 'usare sempre il Partizip II'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Questa tendenza è tipica soprattutto del registro:', options: ['formale, burocratico, accademico', 'colloquiale tra amici', 'infantile'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: 'Nach der Ankunft ging er sofort ins Büro.', it: "Dopo l'arrivo, andò subito in ufficio." },
+      { l2: 'Die Entscheidung des Gerichts überraschte alle.', it: 'La decisione del tribunale sorprese tutti.' },
+      { l2: 'Trotz des Regens gingen wir spazieren.', it: 'Nonostante la pioggia, andammo a passeggio.' },
+      { l2: 'Das Lesen macht mir Freude.', it: 'Leggere mi fa piacere.' },
+    ],
+  },
 ]

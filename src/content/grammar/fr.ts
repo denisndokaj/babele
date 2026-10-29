@@ -730,4 +730,106 @@ export const FR_UNITS: GrammarUnitContent[] = [
       { l2: "Il m'a dit qu'il m'aiderait.", it: 'Mi ha detto che mi avrebbe aiutato.' },
     ],
   },
+  {
+    id: 'fr-subjonctif-passe',
+    language: 'fr',
+    cefrLevel: 'C1',
+    nodeId: 'subjonctif-passe-francese',
+    title: 'Le subjonctif passé et la concordance des temps',
+    noticingExamples: [
+      { l2: "Je suis content qu'il soit venu.", it: 'Sono contento che sia venuto.' },
+      { l2: "Il doute qu'elle ait fini.", it: 'Dubita che abbia finito.' },
+      { l2: "Bien qu'il ait beaucoup travaillé, il a échoué.", it: 'Anche se ha lavorato molto, ha fallito.' },
+      { l2: "C'est le meilleur film que j'aie vu.", it: 'È il miglior film che abbia visto.' },
+      { l2: "Je regrette qu'elle soit partie.", it: 'Mi dispiace che sia partita.' },
+    ],
+    contrastiveExplanation:
+      'Il subjonctif passé si forma con avoir o être al subjonctif présent + participio passato: ' +
+      '"qu\'il SOIT venu", "qu\'elle AIT fini". Si usa, negli stessi contesti del subjonctif ' +
+      'présent (dubbio, emozione, necessità...), quando l\'azione della subordinata è avvenuta ' +
+      'PRIMA del momento della principale: "je suis content qu\'il soit venu HIER" (congiuntivo ' +
+      'passato, azione anteriore) contro "je suis content qu\'il vienne DEMAIN" (congiuntivo ' +
+      'presente, azione simultanea/futura) — esattamente la stessa logica dell\'italiano "congiuntivo ' +
+      'passato" (sia venuto) vs "congiuntivo presente" (venga). Una nota da C1: il francese ' +
+      'letterario avrebbe anche un imperfetto e un trapassato del subjonctif (qu\'il FÛT venu), ma ' +
+      'queste forme sono praticamente scomparse dal parlato e dalla scrittura corrente, sostituite ' +
+      'dal subjonctif présent/passé anche in contesti dove la "concordance des temps" classica le ' +
+      'richiederebbe — qui il francese moderno è più semplice dell\'italiano, che mantiene vivo il ' +
+      'congiuntivo imperfetto/trapassato (se fossi venuto...).',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "Subjonctif passé di 'venir', lui:", options: ["qu'il soit venu", "qu'il vienne", "qu'il venait"], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: "Subjonctif passé di 'finir', lei:", options: ["qu'elle ait fini", "qu'elle finisse", "qu'elle a fini"], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "'Je suis content qu'il soit venu HIER' usa il subjonctif passé perché l'azione è:", options: ['anteriore al momento della principale', 'simultanea alla principale', 'futura rispetto alla principale'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "'Je suis content qu'il vienne DEMAIN' usa il subjonctif présent perché l'azione è:", options: ['simultanea/futura rispetto alla principale', 'anteriore alla principale', 'già conclusa'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "L'imperfetto/trapassato del subjonctif nel francese moderno sono:", options: ['praticamente scomparsi dal parlato, sostituiti da présent/passé', 'ancora usatissimi nel parlato', 'obbligatori in ogni frase formale'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "'C'est le meilleur film que j'aie vu' usa il subjonctif perché:", options: ['è un superlativo relativo, contesto classico del subjonctif', 'è una semplice affermazione', 'è il discorso indiretto'], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'cloze', sentence: "Je suis content qu'il ___ venu.", answer: 'soit' } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: "Il doute qu'elle ___ fini.", answer: 'ait' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: "Bien qu'il ___ beaucoup travaillé, il a échoué.", answer: 'ait' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: "Je regrette qu'elle ___ partie.", answer: 'soit' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'sono contento che sia venuto', answerL2: "Je suis content qu'il soit venu." } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'dubita che abbia finito', answerL2: "Il doute qu'elle ait fini." } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'mi dispiace che sia partita', answerL2: "Je regrette qu'elle soit partie." } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['content', 'je', 'venu', 'soit', 'suis', "qu'il"], answer: ['je', 'suis', 'content', "qu'il", 'soit', 'venu'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['doute', 'il', 'fini', 'ait', "qu'elle"], answer: ['il', 'doute', "qu'elle", 'ait', 'fini'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "Rispetto all'italiano, sulla distinzione tra congiuntivo presente e passato il francese è:", options: ['molto simile, stessa logica di anteriorità', 'completamente diverso', 'assente in francese'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: 'Il subjonctif passé si forma con:', options: ['avoir/être al subjonctif présent + participio passato', "avoir/être all'indicativo + participio passato", 'werden + infinito'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: "Je suis content qu'il soit venu.", it: 'Sono contento che sia venuto.' },
+      { l2: "Il doute qu'elle ait fini.", it: 'Dubita che abbia finito.' },
+      { l2: "C'est le meilleur film que j'aie vu.", it: 'È il miglior film che abbia visto.' },
+      { l2: "Je regrette qu'elle soit partie.", it: 'Mi dispiace che sia partita.' },
+    ],
+  },
+  {
+    id: 'fr-temps-litteraires',
+    language: 'fr',
+    cefrLevel: 'C1',
+    nodeId: 'temps-litteraires-francesi',
+    title: 'Les temps littéraires (le passé simple)',
+    noticingExamples: [
+      { l2: "Il entra dans la pièce et s'assit.", it: 'Entrò nella stanza e si sedette.' },
+      { l2: 'Elle fut très heureuse.', it: 'Fu molto felice.' },
+      { l2: 'Ils vinrent nous voir.', it: 'Vennero a trovarci.' },
+      { l2: 'Le roi mourut sans héritier.', it: 'Il re morì senza eredi.' },
+      { l2: 'Nous eûmes beaucoup de chance.', it: 'Avemmo molta fortuna.' },
+    ],
+    contrastiveExplanation:
+      'Il passé simple è un tempo ESCLUSIVAMENTE scritto: si trova in romanzi, fiabe, libri di ' +
+      'storia, ma NESSUN francese lo usa mai parlando — nel parlato si usa sempre il passé composé ' +
+      'anche per narrare eventi del passato lontano. L\'equivalente funzionale più vicino in italiano ' +
+      'è il passato remoto, che però in alcune regioni italiane resta vivo anche nel parlato ' +
+      'quotidiano — il francese ha quindi una separazione più netta e assoluta tra scritto (passé ' +
+      'simple) e parlato (passé composé) di quanto non avvenga in italiano. A C1 l\'obiettivo è il ' +
+      'RICONOSCIMENTO per la lettura, non la produzione attiva: riconoscere forme come "il entra" (è ' +
+      'entrato/entrò), "elle fut" (fu, da être), "ils vinrent" (vennero, da venir), "il mourut" ' +
+      '(morì, da mourir) quando si legge un testo letterario, sapendo che corrispondono a un passé ' +
+      'composé nel parlato.',
+    exercises: [
+      { id: 'ex1', payload: { type: 'multiple-choice', question: "'Il entra dans la pièce' (passé simple) corrisponde, nel parlato, a:", options: ['Il est entré dans la pièce.', 'Il entre dans la pièce.', 'Il entrerait dans la pièce.'], correctIndex: 0 } },
+      { id: 'ex2', payload: { type: 'multiple-choice', question: 'Il passé simple si usa:', options: ['solo nello scritto letterario/narrativo, mai nel parlato', 'sia nello scritto sia nel parlato', 'solo nel parlato formale'], correctIndex: 0 } },
+      { id: 'ex3', payload: { type: 'multiple-choice', question: "Passé simple di 'être', lei:", options: ['elle fut', 'elle est', 'elle était'], correctIndex: 0 } },
+      { id: 'ex4', payload: { type: 'multiple-choice', question: "Passé simple di 'avoir', noi:", options: ['nous eûmes', 'nous avons eu', 'nous avions'], correctIndex: 0 } },
+      { id: 'ex5', payload: { type: 'multiple-choice', question: "Passé simple di 'venir', loro:", options: ['ils vinrent', 'ils sont venus', 'ils venaient'], correctIndex: 0 } },
+      { id: 'ex6', payload: { type: 'multiple-choice', question: "L'equivalente funzionale più vicino in italiano è:", options: ['il passato remoto', 'il passato prossimo', "l'imperfetto"], correctIndex: 0 } },
+      { id: 'ex7', payload: { type: 'multiple-choice', question: "A C1, l'obiettivo sul passé simple è:", options: ['riconoscerlo in lettura, non produrlo attivamente', 'saperlo usare parlando', 'ignorarlo completamente'], correctIndex: 0 } },
+      { id: 'ex8', payload: { type: 'cloze', sentence: "Il ___ dans la pièce et s'assit.", answer: 'entra' } },
+      { id: 'ex9', payload: { type: 'cloze', sentence: 'Elle ___ très heureuse.', answer: 'fut' } },
+      { id: 'ex10', payload: { type: 'cloze', sentence: 'Le roi ___ sans héritier.', answer: 'mourut' } },
+      { id: 'ex11', payload: { type: 'translation-it-l2', promptIt: 'entrò nella stanza', answerL2: 'Il entra dans la pièce.' } },
+      { id: 'ex12', payload: { type: 'translation-it-l2', promptIt: 'fu molto felice', answerL2: 'Elle fut très heureuse.' } },
+      { id: 'ex13', payload: { type: 'translation-it-l2', promptIt: 'vennero a trovarci', answerL2: 'Ils vinrent nous voir.' } },
+      { id: 'ex14', payload: { type: 'reorder', words: ['pièce', 'il', 'la', 'dans', 'entra'], answer: ['il', 'entra', 'dans', 'la', 'pièce'] } },
+      { id: 'ex15', payload: { type: 'reorder', words: ['heureuse', 'elle', 'très', 'fut'], answer: ['elle', 'fut', 'très', 'heureuse'] } },
+      { id: 'ex16', payload: { type: 'multiple-choice', question: "A differenza dell'italiano, la separazione scritto/parlato per il passato narrativo in francese è:", options: ['più netta e assoluta (passé simple mai parlato, da nessuno)', 'meno netta che in italiano', 'inesistente'], correctIndex: 0 } },
+      { id: 'ex17', payload: { type: 'multiple-choice', question: "'Nous eûmes beaucoup de chance' significa:", options: ['avemmo molta fortuna', 'abbiamo molta fortuna', 'avremo molta fortuna'], correctIndex: 0 } },
+    ],
+    keySentences: [
+      { l2: "Il entra dans la pièce et s'assit.", it: 'Entrò nella stanza e si sedette.' },
+      { l2: 'Elle fut très heureuse.', it: 'Fu molto felice.' },
+      { l2: 'Ils vinrent nous voir.', it: 'Vennero a trovarci.' },
+      { l2: 'Le roi mourut sans héritier.', it: 'Il re morì senza eredi.' },
+    ],
+  },
 ]
